@@ -12,36 +12,47 @@
       <header></header>
       <main>
         <section id="signup-section">
-          <form action="signin.html" id="signin-form">
+          <form action="signin.html" id="signup-form">
             <input
               type="text"
               name="fullname"
               id="fullname"
-              placeholder="fullname"
+              placeholder="Fullname"
+              autocomplete
             />
             <input
               type="email"
               name="email"
               id="email"
               placeholder="Email Address"
+              autocomplete
+            />
+
+            <input
+              type="number"
+              name="phone"
+              id="phone"
+              placeholder="Phone Number"
+              autocomplete
             />
             <input
               type="text"
               name="username"
               id="username"
-              placeholder="username"
+              placeholder="Username"
+              autocomplete
             />
             <input
               type="password"
-              placeholder="password"
+              placeholder="Password"
               name="password"
               id="password"
             />
-            <button>Log in</button>
+            <button>Register</button>
             <p><a href="reset1.html">Forgot Password ?</a></p>
             <h3>
-              Don't have an account?
-              <span class="signup-link"><a href="signup.html">Sign Up</a></span>
+              Have an account?
+              <span class="signup-link"><a href="signin.html">Sign In</a></span>
             </h3>
           </form>
         </section>
