@@ -16,7 +16,7 @@ body {
 }
 #signin-section form {
   padding-top: 2em;
-  background: #80808017;
+  background: #f4f7f8;
   width: 40%;
   margin: 0 auto;
   display: flex;
@@ -96,7 +96,7 @@ body {
 }
 #reset1-section form {
   padding-top: 2em;
-  background: #80808017;
+  background: #f4f7f8;
   width: 40%;
   margin: 0 auto;
   display: flex;
@@ -151,22 +151,25 @@ body {
 }
 
 #reset1-section p {
-  padding: 0 4.3em;
+  padding: 0 4.9em;
   margin-top: 2em;
-  color: #80cfff;
+  color: grey;
+  font-size: 0.85em;
+  padding-bottom: 1.4em;
 }
 
 #reset1-section h2 {
   text-align: center;
+  font-size: 2em;
+  color: #80cfff;
 }
 
 #reset1-section h3 {
   color: grey;
 }
 
-#reset1-section h2 {
-  font-size: 2em;
-  color: grey;
+.reset2-header {
+  padding-bottom: 2em;
 }
 
 @media (max-width: 769px) {
@@ -183,7 +186,7 @@ body {
   }
 
   #reset1-section p {
-    padding: 0 2.5em;
+    padding: 0 2.9em;
     padding-bottom: 1em;
   }
 }
