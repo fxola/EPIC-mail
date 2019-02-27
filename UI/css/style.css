@@ -429,12 +429,12 @@ footer {
   border-radius: 4px;
 }
 
-button#cancel {
-  color: red;
-  background: rgba(248, 146, 146, 0.4);
+button.cancel {
+  color: red !important;
+  background: rgba(248, 146, 146, 0.4) !important;
 }
 
-#cancel:hover {
+.cancel:hover {
   color: white !important;
   background: rgb(248, 146, 146) !important;
 }
@@ -469,6 +469,79 @@ button#cancel {
 #group-modal:target .group-modal-content {
   opacity: 1;
   visibility: visible;
+}
+
+#member-modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: ease-in-out 1s;
+}
+
+#member-modal:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+#member-modal:target .member-modal-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+#member-form {
+  position: relative;
+  margin-top: 5em;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: auto;
+  width: 50vw;
+  background: #f4f7f8;
+  padding: 1em;
+  text-align: center;
+}
+
+#member-form button {
+  margin-top: 1em;
+  background: rgba(128, 207, 255, 0.5);
+  color: rgb(128, 207, 255);
+  padding: 0.5em 0 0.5em 0;
+  width: 20%;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: 0.6s;
+  border-radius: 4px;
+}
+
+#member-form button:hover {
+  background: rgb(128, 207, 255);
+  color: white;
+}
+
+#member-scroll {
+  height: 200px;
+  overflow: auto;
+}
+
+#member-options {
+  font-size: 1.5em;
+  padding: 0.7em;
+  border-bottom: 1px solid #80cfff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.member-input {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
 #group-list {
@@ -507,15 +580,16 @@ button#cancel {
   padding: 0.7em;
   margin: 1em;
   color: rgba(0, 159, 255, 1);
-  background: rgba(0, 159, 255, 0.3);
+  background: rgba(0, 159, 255, 0.4);
   border: none;
   border-radius: 3px;
   transition: 0.5s;
   cursor: pointer;
+  font-weight: bolder;
 }
 
 #group-details button:hover {
-  background: rgba(0, 159, 255, 1);
+  background: rgba(0, 159, 255, 0.7);
   color: white;
   border: none;
 }
@@ -526,11 +600,29 @@ button#cancel {
     overflow-x: auto;
   }
 
+  #create-group button {
+    width: 50%;
+  }
+
   #group-form input {
     width: 100%;
   }
 
   #group-form button {
+    width: 100%;
+    margin: 5px;
+  }
+
+  #member-form {
+    width: 70%;
+  }
+
+  /* #group-list > a {
+    position: absolute;
+  } */
+
+  #member-form button {
+    margin-top: 1em;
     width: 100%;
     margin: 5px;
   }
