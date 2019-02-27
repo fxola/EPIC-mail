@@ -349,3 +349,79 @@ nav ul li a {
     background: #80cfff;
   }
 }
+/******************************************************* 
+            FOOTER STYLES 
+***********************************************************/
+
+footer {
+  height: 10vh;
+  background: #025486;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/******************************************************* 
+            DASHBOARD PAGE STYLES 
+***********************************************************/
+#dashboard-main {
+  height: 100vh;
+}
+
+#group-list {
+  padding-top: 7em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#group-card {
+  padding: 1em;
+  width: 220px;
+}
+
+#group-details {
+  box-shadow: 0 4px 8px 0 rgba(240, 173, 173, 0.2);
+  transition: 0.3s;
+  text-align: center;
+  border-radius: 0.3em;
+  border: 5px solid rgba(128, 207, 255, 1);
+  background-color: rgba(128, 207, 255, 0.4);
+  color: #005182;
+}
+
+#group-details:hover {
+  box-shadow: 0 3em 3em 0 rgba(0, 0, 0, 0.2);
+}
+#group-details h2 {
+  margin-bottom: 1em;
+}
+
+#group-details button {
+  padding: 0.7em;
+  margin: 1em;
+  color: rgba(0, 159, 255, 1);
+  background: rgba(0, 159, 255, 0.3);
+  border: none;
+  border-radius: 3px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#group-details button:hover {
+  background: rgba(0, 159, 255, 1);
+  color: white;
+  border: none;
+}
+
+@media (max-width: 769px) {
+  #dashboard-main {
+    height: 100%;
+    overflow-x: auto;
+  }
+}
