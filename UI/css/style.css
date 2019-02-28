@@ -663,6 +663,7 @@ span.date {
   height: 400px;
   overflow-x: auto;
   border-top: 1px solid #80cfff;
+  background: rgba(156, 217, 255, 0.1);
 }
 
 #section-inbox a {
@@ -672,6 +673,10 @@ span.date {
 #section-inbox .messages {
   padding: 1em;
   border-bottom: 1px solid #80cfff;
+  transition: ease-out 0.7s;
+}
+#section-inbox .messages:hover {
+  background: #80cfff;
 }
 
 /* for custom scrollbar for webkit browser*/
