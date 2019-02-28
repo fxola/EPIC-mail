@@ -718,6 +718,7 @@ span.date {
   #inbox-main {
     height: 100%;
     overflow-x: auto;
+    padding-bottom: 3em;
   }
   #section-inbox {
     margin-left: 0;
