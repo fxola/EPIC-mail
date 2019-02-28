@@ -11,8 +11,13 @@ body {
 /******************************************************* 
             SIGN IN PAGE STYLES 
 ***********************************************************/
+#signin-main {
+  height: 100vh;
+  background-color: #fefefe;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
 #signin-section {
-  padding-top: 4em;
+  padding-top: 7em;
 }
 #signin-section form {
   padding-top: 2em;
@@ -91,8 +96,14 @@ body {
 /******************************************************* 
             SIGN UP PAGE STYLES 
 ***********************************************************/
+
+#signup-main {
+  height: 100vh;
+  background-color: #fefefe;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
 #signup-section {
-  padding-top: 4em;
+  padding-top: 7em;
 }
 #signup-section form {
   padding-top: 2em;
@@ -171,8 +182,14 @@ body {
 /******************************************************* 
             RESET PASSWORD PAGE STYLES 
 ***********************************************************/
+#reset1-main,
+#reset2-main {
+  height: 100vh;
+  background-color: #fefefe;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
 #reset1-section {
-  padding-top: 4em;
+  padding-top: 7em;
 }
 #reset1-section form {
   padding-top: 2em;
@@ -368,6 +385,8 @@ footer {
 ***********************************************************/
 #dashboard-main {
   height: 100vh;
+  background-color: #fefefe;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 #create-group {
@@ -432,11 +451,12 @@ footer {
 button.cancel {
   color: red !important;
   background: rgba(248, 146, 146, 0.4) !important;
+  transition: 0.7s;
 }
 
 .cancel:hover {
   color: white !important;
-  background: rgb(248, 146, 146) !important;
+  background: rgb(255, 71, 71) !important;
 }
 
 #group-form button:hover {
@@ -633,6 +653,8 @@ button.cancel {
 ***********************************************************/
 #inbox-main {
   height: 100vh;
+  background-color: #fefefe;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 #inbox-main h1 {
@@ -668,7 +690,7 @@ span.date {
 
 #section-inbox a {
   text-decoration: none;
-  color: black;
+  color: #5f5252;
 }
 #section-inbox .messages {
   padding: 1em;
@@ -684,9 +706,11 @@ span.date {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
 }
 ::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
 }
 
@@ -694,6 +718,7 @@ span.date {
   #inbox-main {
     height: 100%;
     overflow-x: auto;
+    padding-bottom: 3em;
   }
   #section-inbox {
     margin-left: 0;
@@ -702,13 +727,89 @@ span.date {
 
   #message-scroll {
     border-top: none;
-    height: auto;
-    overflow: hidden;
+    height: 70vh;
+    overflow: auto;
   }
   .messages p {
     width: 90vw;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+/******************************************************* 
+            SENT MESSAGES STYLES 
+***********************************************************/
+#sent-main {
+  height: 100vh;
+  background-color: #fefefe;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+#sent-main h1 {
+  text-align: center;
+}
+#sent-main h3 {
+  padding: 0.5em 0 0.5em 0;
+}
+
+#sent-main h2,
+#sent-main h3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#section-sent {
+  margin: 0 auto;
+  padding-top: 5em;
+  margin-left: 10em;
+  margin-right: 10em;
+}
+
+#section-sent .messages {
+  padding: 1em;
+  color: #5f5252;
+  border-bottom: 1px solid #80cfff;
+  transition: ease-out 0.7s;
+}
+#section-sent .messages:hover {
+  background: #80cfff;
+}
+
+span.retract {
+  font-size: 0.8em;
+}
+
+span.retract > button {
+  padding: 0.5em 1.2em;
+  border-radius: 0.2em;
+  cursor: pointer;
+  border: none;
+  border: 1px solid red;
+}
+
+/* for custom scrollbar for webkit browser*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
+}
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
+}
+
+@media (max-width: 769px) {
+  #sent-main {
+    height: 100%;
+    overflow-x: auto;
+    padding-bottom: 3em;
+  }
+  #section-sent {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
