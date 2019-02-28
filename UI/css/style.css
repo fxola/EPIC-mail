@@ -11,8 +11,11 @@ body {
 /******************************************************* 
             SIGN IN PAGE STYLES 
 ***********************************************************/
+#signin-main {
+  height: 100vh;
+}
 #signin-section {
-  padding-top: 4em;
+  padding-top: 7em;
 }
 #signin-section form {
   padding-top: 2em;
@@ -91,8 +94,12 @@ body {
 /******************************************************* 
             SIGN UP PAGE STYLES 
 ***********************************************************/
+
+#signup-main {
+  height: 100vh;
+}
 #signup-section {
-  padding-top: 4em;
+  padding-top: 7em;
 }
 #signup-section form {
   padding-top: 2em;
@@ -171,8 +178,12 @@ body {
 /******************************************************* 
             RESET PASSWORD PAGE STYLES 
 ***********************************************************/
+#reset1-main,
+#reset2-main {
+  height: 100vh;
+}
 #reset1-section {
-  padding-top: 4em;
+  padding-top: 7em;
 }
 #reset1-section form {
   padding-top: 2em;
@@ -668,7 +679,7 @@ span.date {
 
 #section-inbox a {
   text-decoration: none;
-  color: black;
+  color: grey;
 }
 #section-inbox .messages {
   padding: 1em;
@@ -684,9 +695,11 @@ span.date {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
 }
 ::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
 }
 
