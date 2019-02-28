@@ -443,11 +443,12 @@ footer {
 button.cancel {
   color: red !important;
   background: rgba(248, 146, 146, 0.4) !important;
+  transition: 0.7s;
 }
 
 .cancel:hover {
   color: white !important;
-  background: rgb(248, 146, 146) !important;
+  background: rgb(255, 71, 71) !important;
 }
 
 #group-form button:hover {
@@ -679,7 +680,7 @@ span.date {
 
 #section-inbox a {
   text-decoration: none;
-  color: grey;
+  color: #5f5252;
 }
 #section-inbox .messages {
   padding: 1em;
@@ -723,5 +724,78 @@ span.date {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+/******************************************************* 
+            SENT MESSAGES STYLES 
+***********************************************************/
+#sent-main {
+  height: 100vh;
+}
+
+#sent-main h1 {
+  text-align: center;
+}
+#sent-main h3 {
+  padding: 0.5em 0 0.5em 0;
+}
+
+#sent-main h2,
+#sent-main h3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#section-sent {
+  margin: 0 auto;
+  padding-top: 5em;
+  margin-left: 10em;
+  margin-right: 10em;
+}
+
+#section-sent .messages {
+  padding: 1em;
+  color: #5f5252;
+  border-bottom: 1px solid #80cfff;
+  transition: ease-out 0.7s;
+}
+#section-sent .messages:hover {
+  background: #80cfff;
+}
+
+span.retract {
+  font-size: 0.8em;
+}
+
+span.retract > button {
+  padding: 0.5em 1.2em;
+  border-radius: 0.2em;
+  cursor: pointer;
+  border: none;
+  border: 1px solid red;
+}
+
+/* for custom scrollbar for webkit browser*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
+}
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 159, 255, 0.4);
+}
+
+@media (max-width: 769px) {
+  #sent-main {
+    height: 100%;
+    overflow-x: auto;
+  }
+  #section-sent {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
