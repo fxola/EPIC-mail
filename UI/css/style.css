@@ -9,6 +9,87 @@ body {
 }
 
 /******************************************************* 
+            LANDING PAGE STYLES 
+***********************************************************/
+
+#hero {
+  height: 100vh;
+  width: 100vw;
+  display: block;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#hero::after {
+  content: "";
+  background: url("../img/hero.svg");
+  background-size: 100% 100%;
+  background-color: #e8f0f5;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+#index-nav {
+  z-index: 99;
+}
+#hero h1 {
+  font-size: 7em;
+  color: #005182;
+  margin-bottom: 0.4em;
+}
+#hero a {
+  display: inline-block;
+  width: 20%;
+}
+#hero button {
+  padding: 0.7em;
+  width: 100%;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  color: #009fff;
+  background: rgba(128, 207, 255, 0.6);
+  border: none;
+  border: 1px solid #009fff;
+  transition: ease 0.4s;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#hero button:hover {
+  color: white;
+  background: #009fff;
+}
+
+@media (max-width: 769px) {
+  #hero {
+    background-size: 100% 100% 1% 100%;
+  }
+
+  #hero-content {
+    position: absolute;
+    top: 18%;
+  }
+
+  #hero h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  #hero a {
+    width: 50%;
+    /* margin-bottom: 5em; */
+  }
+}
+/******************************************************* 
             SIGN IN PAGE STYLES 
 ***********************************************************/
 #signin-main {
@@ -983,7 +1064,6 @@ textarea::-webkit-input-placeholder {
   #compose-main {
     height: auto;
   }
-
 
   #compose-section form {
     width: 90%;
