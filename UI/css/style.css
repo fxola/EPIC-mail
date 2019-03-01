@@ -1087,3 +1087,110 @@ textarea::-webkit-input-placeholder {
     width: 76%;
   }
 }
+
+/******************************************************* 
+        DRAFTS PAGE STYLES 
+***********************************************************/
+#draft-main {
+  height: 100vh;
+  background-color: #fefefe;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+#section-draft h1 {
+  text-align: center;
+}
+#section-draft {
+  margin: 0 auto;
+  padding-top: 5em;
+}
+#section-draft .messages {
+  padding: 1em;
+  border-bottom: 1px solid #80cfff;
+  transition: ease-out 0.7s;
+}
+
+#draft-main h2,
+#draft-main h3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#draft-main h3 {
+  margin: 1em 1em 1em 0em;
+}
+
+#section-draft a {
+  text-decoration: none;
+  color: #5f5252;
+}
+
+span.delete {
+  font-size: 0.8em;
+}
+
+span.delete > button {
+  padding: 0.5em 1.2em;
+  border-radius: 0.2em;
+  cursor: pointer;
+  border: none;
+  border: 1px solid red;
+}
+
+#compose-draft-main {
+  height: 100vh;
+  background-color: #fefefe;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+#compose-draft-section {
+  margin: 0 auto;
+  padding-top: 5em;
+}
+
+#compose-draft-section h1 {
+  text-align: center;
+}
+
+#compose-draft-section form {
+  padding-top: 2em;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.7em;
+}
+
+#compose-draft-section form input {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  outline: none;
+  border: none;
+  background: #e8f0f5;
+  font-size: 1.2em;
+  border-bottom: 4px solid #80cfff;
+  color: #80cfff;
+}
+
+#compose-draft-section form button {
+  padding: 0.7em;
+  width: 72%;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  color: #009fff;
+  background: rgba(128, 207, 255, 0.6);
+  border: none;
+  transition: ease 0.4s;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+@media (max-width: 769px) {
+  #compose-draft-section form {
+    width: 100%;
+  }
+}
