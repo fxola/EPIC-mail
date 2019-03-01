@@ -21,7 +21,7 @@ body {
 }
 #signin-section form {
   padding-top: 2em;
-  background: #012c46;
+  background: rgba(128, 207, 255, 0.3);
   width: 40%;
   margin: 0 auto;
   display: flex;
@@ -53,8 +53,8 @@ body {
   width: 74%;
   font-size: 1.1em;
   margin-bottom: 1em;
-  color: #80cfff;
-  background: #80cfff30;
+  color: #009fff;
+  background: rgba(128, 207, 255, 0.6);
   border: none;
   transition: ease 0.4s;
   cursor: pointer;
@@ -107,7 +107,7 @@ body {
 }
 #signup-section form {
   padding-top: 2em;
-  background: #012c46;
+  background: rgba(128, 207, 255, 0.3);
   width: 40%;
   margin: 0 auto;
   display: flex;
@@ -139,8 +139,8 @@ body {
   width: 74%;
   font-size: 1.1em;
   margin-bottom: 1em;
-  color: #80cfff;
-  background: #80cfff30;
+  color: #009fff;
+  background: rgba(128, 207, 255, 0.6);
   border: none;
   transition: ease 0.4s;
   cursor: pointer;
@@ -193,7 +193,7 @@ body {
 }
 #reset1-section form {
   padding-top: 2em;
-  background: #012c46;
+  background: rgba(128, 207, 255, 0.3);
   width: 40%;
   margin: 0 auto;
   display: flex;
@@ -225,8 +225,8 @@ body {
   width: 74%;
   font-size: 1.1em;
   margin-bottom: 1em;
-  color: #80cfff;
-  background: #80cfff30;
+  color: #009fff;
+  background: rgba(128, 207, 255, 0.6);
   border: none;
   transition: ease 0.4s;
   cursor: pointer;
@@ -574,6 +574,9 @@ button.cancel {
   flex-wrap: wrap;
 }
 
+#group-list > a {
+  position: absolute;
+}
 #group-card {
   padding: 1em;
   width: 220px;
@@ -635,10 +638,6 @@ button.cancel {
 
   #member-form {
     width: 70%;
-  }
-
-  #group-list > a {
-    position: absolute;
   }
 
   #member-form button {
@@ -892,5 +891,116 @@ p.message-meta + p {
   #section-messages h3 {
     font-weight: 200;
     font-size: 1em;
+  }
+}
+
+/******************************************************* 
+        COMPOSE PAGE STYLES 
+***********************************************************/
+#compose-main {
+  height: 100vh;
+  background-color: #fefefe;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+#compose-section {
+  margin: 0 auto;
+  padding-top: 5em;
+}
+
+#compose-section form {
+  padding-top: 2em;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.7em;
+}
+
+#compose-section form input {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  outline: none;
+  border: none;
+  background: #e8f0f5;
+  font-size: 1.2em;
+  border-bottom: 4px solid #80cfff;
+  color: #80cfff;
+}
+
+#compose-section form input::placeholder {
+  color: #80cfff;
+}
+
+#compose-section h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#compose-section form button {
+  padding: 0.7em;
+  width: 72%;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  color: #009fff;
+  background: rgba(128, 207, 255, 0.6);
+  border: none;
+  transition: ease 0.4s;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#compose-section form button:hover {
+  color: white;
+  background: #80cfff;
+}
+
+textarea {
+  margin-bottom: 3em;
+  width: 68.5%;
+  border: none;
+  border-bottom: 4px solid #80cfff;
+  background: #e8f0f5;
+  color: #80cfff;
+  padding: 1em;
+  font-size: 1.3em;
+  font-weight: 900;
+  outline: none;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #80cfff;
+  font-size: 1.2em;
+  font-weight: 900;
+}
+
+@media (max-width: 769px) {
+  #compose-main {
+    height: auto;
+  }
+
+
+  #compose-section form {
+    width: 90%;
+  }
+  #compose-section form input {
+    font-size: 1.1em;
+  }
+
+  textarea {
+    width: 66%;
+  }
+
+  textarea::-webkit-input-placeholder {
+    font-size: 1em;
+  }
+  #compose-section form button {
+    padding: 0.5em;
+    width: 76%;
   }
 }
