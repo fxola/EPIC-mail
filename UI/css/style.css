@@ -975,7 +975,7 @@ textarea {
 
 textarea::-webkit-input-placeholder {
   color: #80cfff;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: 900;
 }
 
@@ -983,6 +983,7 @@ textarea::-webkit-input-placeholder {
   #compose-main {
     height: auto;
   }
+
 
   #compose-section form {
     width: 90%;
