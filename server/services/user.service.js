@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
 import mockData from '../utils/mockData';
 import User from '../models/user.model';
-import jwt from 'jsonwebtoken';
+
+dotenv.config();
 
 class UserService {
   // check if email exists in db
@@ -13,24 +16,24 @@ class UserService {
 
   static createUser(email, firstName, lastName, password) {
     if (this.validate(email, password).status === 200 && !this.emailExists(email)) {
-      
-      // logic for creating a new user D
+      // logic for creating a new user ID
       const userLength = mockData.users.length;
       const lastUserId = mockData.users[userLength - 1].id;
       const id = lastUserId + 1;
 
       const newUser = new User(id, email, firstName, lastName, password);
 
-      //updating the db with the newly created user
+      // updating the db with the newly created user
       mockData.users.push(newUser);
 
-      { payloadId, payloadEmail, payloadfirstName } = newUser;
-      
+      const { payloadId, payloadEmail, payloadfirstName, payloadLastName } = newUser;
+
       const payload = {
         payloadId,
         payloadEmail,
-        payloadfirstName
-      }
+        payloadfirstName,
+        payloadLastName
+      };
 
       const token = this.getToken(payload);
       return {
@@ -62,9 +65,8 @@ class UserService {
     };
   }
 
-
-  static getToken(userPayload){
-    return jwt.sign(userPayload,process.env.SECRET,{expiresIn:'1h'});
+  static getToken(userPayload) {
+    return jwt.sign(userPayload, process.env.SECRET, { expiresIn: '1h' });
   }
 }
 
