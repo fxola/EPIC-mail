@@ -6,67 +6,36 @@ import User from '../models/user.model';
 dotenv.config();
 
 class UserService {
-  // check if email exists in db
-  static emailExists(userEmail) {
-    const existingEmails = mockData.users.reduce((emailArray, userDetail) => {
-      return emailArray.concat(userDetail.email);
-    }, []);
-    return existingEmails.includes(userEmail);
-  }
-
   static createUser(userDetails) {
     const { email, firstName, lastName, password } = userDetails;
+    // logic for creating a new user ID
+    const userLength = mockData.users.length;
+    const lastUserId = mockData.users[userLength - 1].id;
+    const id = lastUserId + 1;
 
-    if (this.validate(email, password).status === 200 && !this.emailExists(email)) {
-      // logic for creating a new user ID
-      const userLength = mockData.users.length;
-      const lastUserId = mockData.users[userLength - 1].id;
-      const id = lastUserId + 1;
+    const newUser = new User(id, email, firstName, lastName, password);
 
-      const newUser = new User(id, email, firstName, lastName, password);
+    // updating the db with the newly created user
+    mockData.users.push(newUser);
 
-      // updating the db with the newly created user
-      mockData.users.push(newUser);
+    const { payloadId, payloadEmail, payloadfirstName, payloadLastName } = newUser;
 
-      const { payloadId, payloadEmail, payloadfirstName, payloadLastName } = newUser;
-
-      const payload = {
-        payloadId,
-        payloadEmail,
-        payloadfirstName,
-        payloadLastName
-      };
-
-      const token = this.getToken(payload);
-      return {
-        status: 201,
-        data: token
-      };
-    }
-    return {
-      status: 409,
-      error: 'Email already in use'
+    const payload = {
+      payloadId,
+      payloadEmail,
+      payloadfirstName,
+      payloadLastName
     };
-  }
+    console.log(newUser);
 
-  static validate(email, password) {
-    const passwordPattern = /\w{6,}/g;
-    // eslint-disable-next-line no-useless-escape
-    const emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!emailPattern.test(email)) {
-      return {
-        status: 422,
-        error: 'Invalid email address provided'
-      };
-    }
-    if (!passwordPattern.test(password)) {
-      return {
-        status: 422,
-        error: 'Password must not be less than six(6) characters'
-      };
-    }
+    const bearerToken = this.getToken(payload);
     return {
-      status: 200
+      status: 201,
+      data: [
+        {
+          token: bearerToken
+        }
+      ]
     };
   }
 
