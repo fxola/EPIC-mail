@@ -49,7 +49,6 @@ class UserService {
     }
   }
 
-  // eslint-disable-next-line consistent-return
   static logUserIn(userCredentials) {
     const { email, password } = userCredentials;
 
@@ -69,6 +68,13 @@ class UserService {
           ]
         };
       }
+
+      const errorResponse = {
+        status: 401,
+        error: 'Authentication Failed'
+      };
+
+      return errorResponse;
     } catch (err) {
       return {
         status: 500,
