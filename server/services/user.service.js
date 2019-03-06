@@ -12,7 +12,6 @@ class UserService {
 
     try {
       const hashedPassword = this.hashPassword(password);
-
       // logic for creating a new user ID
       const userLength = mockData.users.length;
       const lastUserId = mockData.users[userLength - 1].id;
@@ -53,11 +52,11 @@ class UserService {
     const { email, password } = userCredentials;
 
     try {
-      const userDetails = mockData.users.find(user => user.email);
+      const userDetails = mockData.users.find(user => email === user.email);
       const hash = userDetails.password;
 
       if (this.comparePassword(password, hash) === true) {
-        const bearerToken = this.getToken(email);
+        const bearerToken = this.getToken({ email });
 
         return {
           status: 201,
@@ -88,21 +87,18 @@ class UserService {
   }
 
   static hashPassword(password) {
-    bcrypt.hash(password, 10, (err, hash) => {
-      if (err) {
-        return err;
-      }
-      return hash;
-    });
-  }
-
-  static comparePassword(password, hash) {
-    bcrypt.compare(password, hash, (err, result) => {
+    const hash = bcrypt.hashSync(password, 10, (err, result) => {
       if (err) {
         return err;
       }
       return result;
     });
+    return hash;
+  }
+
+  static comparePassword(password, hash) {
+    const result = bcrypt.compareSync(password, hash);
+    return result;
   }
 }
 

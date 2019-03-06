@@ -1,18 +1,16 @@
 import mockData from '../utils/mockData';
 
 class Validation {
-  constructor() {
-    this.passwordPattern = /\w{6,}/g;
-
-    // eslint-disable-next-line no-useless-escape
-    this.emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  }
-
   static check(req, res, next) {
     const userDetails = req.body;
     const { email, firstName, lastName, password } = userDetails;
 
-    if (!this.emailPattern.test(email)) {
+    const passwordPattern = /\w{6,}/g;
+
+    // eslint-disable-next-line no-useless-escape
+    const emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!emailPattern.test(email)) {
       Validation.invalidEmailResponse(res);
     }
 
@@ -20,7 +18,7 @@ class Validation {
       Validation.invalidNameResponse(res);
     }
 
-    if (!this.passwordPattern.test(password)) {
+    if (!passwordPattern.test(password)) {
       Validation.invalidPasswordResponse(res);
     }
     if (Validation.emailExists(email)) {
@@ -31,12 +29,11 @@ class Validation {
   }
 
   static loginCheck(req, res, next) {
-    const { email, password } = req.body;
-    if (Validation.emailExists(email) && Validation.passwordPattern.test(password)) {
-      next();
+    const { email } = req.body;
+    if (!Validation.emailExists(email)) {
+      Validation.invalidCrendentialsResponse(res);
     }
-
-    Validation.invalidCrendentialsResponse(res);
+    next();
   }
 
   static invalidPasswordResponse(res) {
