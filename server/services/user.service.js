@@ -39,6 +39,20 @@ class UserService {
     };
   }
 
+  static logUserIn(userCredentials) {
+    const { email } = userCredentials;
+
+    const bearerToken = this.getToken(email);
+    return {
+      status: 201,
+      data: [
+        {
+          token: bearerToken
+        }
+      ]
+    };
+  }
+
   static getToken(userPayload) {
     return jwt.sign(userPayload, process.env.SECRET, { expiresIn: '1h' });
   }
