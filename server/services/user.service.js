@@ -8,6 +8,7 @@ dotenv.config();
 class UserService {
   static createUser(userDetails) {
     const { email, firstName, lastName, password } = userDetails;
+
     // logic for creating a new user ID
     const userLength = mockData.users.length;
     const lastUserId = mockData.users[userLength - 1].id;
@@ -26,7 +27,6 @@ class UserService {
       payloadfirstName,
       payloadLastName
     };
-    console.log(newUser);
 
     const bearerToken = this.getToken(payload);
     return {

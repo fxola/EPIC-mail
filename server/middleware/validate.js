@@ -6,8 +6,10 @@ class Validation {
     const { email, firstName, lastName, password } = userDetails;
 
     const passwordPattern = /\w{6,}/g;
+
     // eslint-disable-next-line no-useless-escape
     const emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     if (!emailPattern.test(email)) {
       Validation.invalidEmailResponse(res);
     }
@@ -60,11 +62,9 @@ class Validation {
 
   // check if email exists in db
   static emailExists(userEmail) {
-    console.log(userEmail);
     const existingEmails = mockData.users.reduce((emailArray, userDetail) => {
       return emailArray.concat(userDetail.email);
     }, []);
-    console.log(existingEmails);
     return existingEmails.includes(userEmail);
   }
 }
