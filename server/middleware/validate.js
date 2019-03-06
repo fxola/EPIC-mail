@@ -30,11 +30,28 @@ class Validation {
     next();
   }
 
+  static loginCheck(req, res, next) {
+    const { email, password } = req.body;
+    if (Validation.emailExists(email) && Validation.passwordPattern.test(password)) {
+      next();
+    }
+
+    Validation.invalidCrendentialsResponse(res);
+  }
+
   static invalidPasswordResponse(res) {
     const statusCode = 422;
     res.status(statusCode).json({
       status: statusCode,
       error: 'Password must not be less than six(6) characters'
+    });
+  }
+
+  static invalidCrendentialsResponse(res) {
+    const statusCode = 401;
+    res.status(statusCode).json({
+      status: statusCode,
+      error: 'Authentication Failed'
     });
   }
 
@@ -59,17 +76,6 @@ class Validation {
     res.status(statusCode).json({
       status: statusCode,
       error: 'Email already in use'
-    });
-  }
-
-  static loginCheck(req, res, next) {
-    const { email, password } = req.body;
-    if (Validation.emailExists(email) && Validation.passwordPattern.test(password)) {
-      next();
-    }
-    res.status(401).json({
-      status: 401,
-      error: 'Authentication Failed'
     });
   }
 

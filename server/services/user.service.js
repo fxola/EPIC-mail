@@ -49,18 +49,32 @@ class UserService {
     }
   }
 
+  // eslint-disable-next-line consistent-return
   static logUserIn(userCredentials) {
-    const { email } = userCredentials;
+    const { email, password } = userCredentials;
 
-    const bearerToken = this.getToken(email);
-    return {
-      status: 201,
-      data: [
-        {
-          token: bearerToken
-        }
-      ]
-    };
+    try {
+      const userDetails = mockData.users.find(user => user.email);
+      const hash = userDetails.password;
+
+      if (this.comparePassword(password, hash) === true) {
+        const bearerToken = this.getToken(email);
+
+        return {
+          status: 201,
+          data: [
+            {
+              token: bearerToken
+            }
+          ]
+        };
+      }
+    } catch (err) {
+      return {
+        status: 500,
+        error: err
+      };
+    }
   }
 
   static getToken(userPayload) {
@@ -70,12 +84,18 @@ class UserService {
   static hashPassword(password) {
     bcrypt.hash(password, 10, (err, hash) => {
       if (err) {
-        return {
-          status: 500,
-          error: err
-        };
+        return err;
       }
       return hash;
+    });
+  }
+
+  static comparePassword(password, hash) {
+    bcrypt.compare(password, hash, (err, result) => {
+      if (err) {
+        return err;
+      }
+      return result;
     });
   }
 }
