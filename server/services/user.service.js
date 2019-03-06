@@ -14,7 +14,9 @@ class UserService {
     return existingEmails.includes(userEmail);
   }
 
-  static createUser(email, firstName, lastName, password) {
+  static createUser(userDetails) {
+    const { email, firstName, lastName, password } = userDetails;
+
     if (this.validate(email, password).status === 200 && !this.emailExists(email)) {
       // logic for creating a new user ID
       const userLength = mockData.users.length;
@@ -37,11 +39,14 @@ class UserService {
 
       const token = this.getToken(payload);
       return {
-        status: 200,
+        status: 201,
         data: token
       };
     }
-    return {};
+    return {
+      status: 409,
+      error: 'Email already in use'
+    };
   }
 
   static validate(email, password) {
@@ -50,13 +55,13 @@ class UserService {
     const emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!emailPattern.test(email)) {
       return {
-        status: 403,
+        status: 422,
         error: 'Invalid email address provided'
       };
     }
     if (!passwordPattern.test(password)) {
       return {
-        status: 403,
+        status: 422,
         error: 'Password must not be less than six(6) characters'
       };
     }
