@@ -6,5 +6,11 @@ class UserController {
     const response = UserService.createUser(newUser);
     return res.status(201).json(response);
   }
+
+  static logUserIn(req, res) {
+    const userCredentials = req.body;
+    const response = UserService.logUserIn(userCredentials);
+    return res.status(201).json(response);
+  }
 }
 export default UserController;

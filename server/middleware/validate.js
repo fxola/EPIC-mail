@@ -28,11 +28,27 @@ class Validation {
     next();
   }
 
+  static loginCheck(req, res, next) {
+    const { email } = req.body;
+    if (!Validation.emailExists(email)) {
+      Validation.invalidCrendentialsResponse(res);
+    }
+    next();
+  }
+
   static invalidPasswordResponse(res) {
     const statusCode = 422;
     res.status(statusCode).json({
       status: statusCode,
       error: 'Password must not be less than six(6) characters'
+    });
+  }
+
+  static invalidCrendentialsResponse(res) {
+    const statusCode = 401;
+    res.status(statusCode).json({
+      status: statusCode,
+      error: 'Authentication Failed'
     });
   }
 
