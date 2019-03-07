@@ -68,7 +68,7 @@ class MessageService {
     } catch (err) {
       return {
         status: 500,
-        data: 'Failed to save'
+        error: 'Failed to save'
       };
     }
   }
