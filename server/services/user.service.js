@@ -59,7 +59,7 @@ class UserService {
         const bearerToken = this.getToken({ email });
 
         return {
-          status: 201,
+          status: 200,
           data: [
             {
               token: bearerToken
