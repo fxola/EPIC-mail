@@ -7,7 +7,8 @@ dotenv.config();
 class Auth {
   static getUser(req, res, next) {
     try {
-      const decoded = jwt.verify(req.token, process.env.SECRET);
+      const token = req.headers.authorization.split(' ')[1];
+      const decoded = jwt.verify(token, process.env.SECRET);
       req.userEmail = decoded;
       return next();
     } catch (e) {
