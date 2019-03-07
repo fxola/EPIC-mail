@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 
 // Routes
 import userRoutes from './routes/user.route';
+import messageRoutes from './routes/message.route';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
 
 // Handles
 app.use('/api/v1/auth', userRoutes);
+app.use('/api/v1/messages', messageRoutes);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

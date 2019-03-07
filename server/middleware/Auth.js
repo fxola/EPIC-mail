@@ -14,7 +14,7 @@ class Auth {
     } catch (e) {
       return res.status(401).send({
         status: 401,
-        error: 'You do not have access to this page'
+        error: `You do not have access to this page. ${e}`
       });
     }
   }
