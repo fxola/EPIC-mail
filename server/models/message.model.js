@@ -1,10 +1,18 @@
 class Message {
-  constructor(id, createdOn, subject, message, parentMessageId, status, receiverId = null) {
+  constructor(
+    id,
+    createdOn,
+    subject,
+    message,
+    parentMessageId = null,
+    status = 'draft',
+    receiverId = null
+  ) {
     this.id = id;
     this.createdOn = createdOn;
     this.subject = subject;
     this.message = message;
-    this.parentMessageId = parentMessageId;
+    this.parentMessageId = parentMessageId; // is a draft if null
     this.status = status; // sent, draft or read
     this.receiverId = receiverId; // is a draft if null
   }
