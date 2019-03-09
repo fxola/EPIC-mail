@@ -49,6 +49,20 @@ class MessageController {
       ]
     });
   }
+
+  static fetchSentMessages(req, res) {
+    const sentMessages = MessageService.getSentMessages();
+    if (!Object.entries(sentMessages).length === 0) {
+      return res.status(200).json({
+        status: 200,
+        data: sentMessages
+      });
+    }
+    return res.status(404).json({
+      status: 404,
+      error: 'No message found'
+    });
+  }
 }
 
 export default MessageController;
