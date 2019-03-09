@@ -5,59 +5,87 @@ import Message from '../models/message.model';
 class MessageService {
   static createMessage(incomingMessage, senderEmail) {
     const receiverEmail = incomingMessage.to;
-    const receiver = mockData.contacts.find(contact => receiverEmail === contact.email);
-    const receiverId = receiver.id;
 
-    if (receiverId) {
+    const msgLength = mockData.messages.length;
+    const lastMsgId = mockData.messages[msgLength - 1].id;
+    const id = lastMsgId + 1;
+
+    const receiver = mockData.contacts.find(contact => receiverEmail === contact.email);
+
+    if (receiver) {
       // this means the message is not a draft
+
+      const receiverId = receiver.id;
       const newMessage = this.sendMessage(incomingMessage, receiverId, senderEmail);
-      return this.saveMessage(newMessage);
+      return this.saveMessage(id, newMessage);
     }
 
     // this means the message is a draft
-    return this.saveMessage(incomingMessage);
+    return this.saveMessage(id, incomingMessage);
   }
 
   static sendMessage(incomingMessage, receiverId, senderEmail) {
     const sender = mockData.users.find(user => senderEmail === user.email);
     const senderId = sender.id;
 
-    // find all messages where senderId and receiverId match,
-    const conversation = mockData.messages.filter(
-      message => message.senderId === senderId && message.recieverId === receiverId
-    );
+    // @todo figure out how to tie sender and receiver to the same msg subject
 
-    // get the message ids
-    const messageIds = conversation.reduce((ids, message) => {
-      return ids.concat(message.id);
-    }, []);
+    //  find all messages where the message subject is the same
+    const conversation = mockData.messages.filter(message => {
+      return message.subject.toLowerCase() === incomingMessage.subject.toLowerCase();
+    });
 
-    const sortedIds = messageIds.sort((a, b) => a - b);
+    let parentMessageId = null; // where there has never been an exising conversation
 
-    // get the last id
-    const parentMessageId = sortedIds[sortedIds.length - 1];
+    if (conversation.length >= 1) {
+      // get the message ids
+      const messageIds = conversation.reduce((ids, message) => {
+        return ids.concat(message.id);
+      }, []);
+
+      const sortedIds = messageIds.sort((a, b) => a - b);
+      // get the last id
+      parentMessageId = sortedIds[sortedIds.length - 1]; // there is an exiisting conversation
+    }
+    const { to, subject, message } = incomingMessage;
+    const status = 'sent';
 
     const newMessage = {
-      ...incomingMessage,
-      status: 'sent',
+      to,
+      subject,
+      message,
+      status,
       senderId,
       receiverId,
       parentMessageId
     };
 
-    const messageInstance = new Message(...newMessage);
-    return messageInstance;
+    return newMessage;
   }
 
-  static saveMessage(incomingMessage) {
+  static saveMessage(id, incomingMessage) {
     try {
       const createdOn = new Date();
 
-      const msgLength = mockData.messages.length;
-      const lastMsgId = mockData.messages[msgLength - 1].id;
-      const id = lastMsgId + 1;
+      let newMessage;
+      if (!Object.keys(incomingMessage).includes('senderId')) {
+        // means message is a draft
+        const { subject, message } = incomingMessage;
 
-      const newMessage = new Message(id, createdOn, ...incomingMessage);
+        newMessage = new Message(id, createdOn, subject, message);
+      }
+
+      const { message, subject, status, parentMessageId, receiverId, senderId } = incomingMessage;
+      newMessage = new Message(
+        id,
+        createdOn,
+        subject,
+        message,
+        parentMessageId,
+        status,
+        senderId,
+        receiverId
+      );
 
       mockData.messages.push(newMessage);
 

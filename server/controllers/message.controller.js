@@ -2,9 +2,8 @@ import MessageService from '../services/message.service';
 
 class MessageController {
   static createMessage(req, res) {
-    const { userEmail, ...message } = req.body;
-    const response = MessageService.createMessage(message, userEmail);
-    res.status(response.status).send(response);
+    const response = MessageService.createMessage(req.body, req.body.email);
+    return res.status(response.status).send(response);
   }
 }
 

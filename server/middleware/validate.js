@@ -36,6 +36,23 @@ class Validation {
     next();
   }
 
+  static messageCheck(req, res, next) {
+    const messageBody = req.body;
+    const { message, subject } = messageBody;
+    if (!message || !subject) {
+      Validation.invalidMessageResponse(res);
+    }
+    next();
+  }
+
+  static invalidMessageResponse(res) {
+    const statusCode = 422;
+    res.status(statusCode).json({
+      status: statusCode,
+      error: 'Invalid Message Provided'
+    });
+  }
+
   static invalidPasswordResponse(res) {
     const statusCode = 422;
     res.status(statusCode).json({

@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
 });
 
 // Handles
-app.use('/api/v1/auth', userRoutes);
 app.use('/api/v1/messages', messageRoutes);
+app.use('/api/v1/auth', userRoutes);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
