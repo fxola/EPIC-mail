@@ -1,10 +1,17 @@
 import { Router } from 'express';
+import Auth from '../middleware/Auth';
+import Validate from '../middleware/validate';
+
 import MessageController from '../controllers/message.controller';
 
-import Auth from '../middleware/Auth';
+const { getUser } = Auth;
+
+const { createMessage } = MessageController;
+
+const { loginCheck } = Validate;
 
 const messageRouter = Router();
-
-messageRouter.post('/', Auth.getUser, MessageController.createUser);
+// eslint-disable-next-line no-unused-vars
+messageRouter.post('/', getUser, loginCheck, createMessage);
 
 export default messageRouter;
