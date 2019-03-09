@@ -100,6 +100,14 @@ class MessageService {
       };
     }
   }
+
+  static retractMessage(id) {
+    const messageIndex = mockData.messages.findIndex(message => message.id === parseInt(id, 10));
+    if (messageIndex !== -1) {
+      return mockData.messages.splice(messageIndex, 1);
+    }
+    return false;
+  }
 }
 
 export default MessageService;
