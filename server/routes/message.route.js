@@ -6,13 +6,14 @@ import MessageController from '../controllers/message.controller';
 
 const { getUser } = Auth;
 
-const { createMessage, retractMessage } = MessageController;
+const { createMessage, retractMessage, readMessage } = MessageController;
 
 const { loginCheck, messageCheck } = Validate;
 
 const messageRouter = Router();
 
 messageRouter.post('/', getUser, loginCheck, messageCheck, createMessage);
+messageRouter.get('/:id', readMessage);
 messageRouter.delete('/:id', retractMessage);
 
 export default messageRouter;

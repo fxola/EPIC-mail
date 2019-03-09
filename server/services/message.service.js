@@ -108,6 +108,12 @@ class MessageService {
     }
     return false;
   }
+
+  static readMessage(id) {
+    const foundMessage = mockData.messages.find(message => message.id === parseInt(id, 10));
+
+    return foundMessage || {};
+  }
 }
 
 export default MessageService;
