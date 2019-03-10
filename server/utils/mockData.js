@@ -4,7 +4,7 @@ export default {
       id: 1,
       firstName: 'Olamide',
       lastName: 'Adeleye',
-      email: 'olaade@gmail.com',
+      email: 'ola@gmail.com',
       password: 'somepassword'
     },
     {
@@ -105,8 +105,8 @@ export default {
       message: `Message Body Lorem ipsum dolor sit amet con
                 sectetur adipisicing elit. Consectetur aspernatur 
                 vitae nobis distinctio necessitatibus!`,
-      senderId: 3,
-      recieverId: 10,
+      senderId: 4,
+      recieverId: 5,
       parentMessageId: 21,
       status: 'sent'
     },
@@ -122,6 +122,30 @@ export default {
       recieverId: 4,
       parentMessageId: 22,
       status: 'read'
+    },
+    {
+      id: 24,
+      createdOn: 'Thu Mar 07 2019 12:06:36 GMT+0100 (West Africa Standard Time)',
+      subject: 'Super Important Stuff',
+      message: `Message Body Lorem ipsum dolor sit amet con
+                sectetur adipisicing elit. Consectetur aspernatur 
+                vitae nobis distinctio necessitatibus!`,
+      senderId: 4,
+      recieverId: 5,
+      parentMessageId: 23,
+      status: 'unread'
+    },
+    {
+      id: 25,
+      createdOn: 'Thu Mar 07 2019 12:06:36 GMT+0100 (West Africa Standard Time)',
+      subject: 'Super Important Stuff',
+      message: `Message Body Lorem ipsum dolor sit amet con
+                sectetur adipisicing elit. Consectetur aspernatur 
+                vitae nobis distinctio necessitatibus!`,
+      senderId: 10,
+      recieverId: 4,
+      parentMessageId: 24,
+      status: 'unread'
     }
   ]
 };

@@ -122,9 +122,24 @@ class MessageService {
     return foundMessage || {};
   }
 
-  static getSentMessages() {
-    const sentMessages = mockData.messages.filter(message => message.status === 'sent');
-    return sentMessages || {};
+  static getSentMessages(userEmail) {
+    const sender = mockData.users.find(user => user.email === userEmail);
+    const { id } = sender;
+    const sentMessages = mockData.messages.filter(message => {
+      return message.status === 'sent' && message.senderId === id;
+    });
+
+    return sentMessages || [];
+  }
+
+  static getAllMessages(userEmail) {
+    const receiver = mockData.users.find(user => user.email === userEmail);
+    const { id } = receiver;
+    const messageList = mockData.messages.filter(message => {
+      return message.recieverId === id;
+    });
+
+    return messageList || [];
   }
 }
 
