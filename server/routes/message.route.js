@@ -11,7 +11,8 @@ const {
   retractMessage,
   readMessage,
   fetchSentMessages,
-  fetchAllMessages
+  fetchAllMessages,
+  fetchAllUnreadMessages
 } = MessageController;
 
 const { loginCheck, messageCheck } = Validate;
@@ -21,6 +22,7 @@ const messageRouter = Router();
 messageRouter.post('/', getUser, loginCheck, messageCheck, createMessage);
 messageRouter.get('/', getUser, loginCheck, fetchAllMessages);
 messageRouter.get('/sent', getUser, loginCheck, fetchSentMessages);
+messageRouter.get('/unread', getUser, loginCheck, fetchAllUnreadMessages);
 messageRouter.get('/:id', getUser, loginCheck, readMessage);
 messageRouter.delete('/:id', getUser, loginCheck, retractMessage);
 

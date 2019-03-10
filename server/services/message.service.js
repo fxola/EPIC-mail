@@ -141,6 +141,16 @@ class MessageService {
 
     return messageList || [];
   }
+
+  static getAllUnreadMessages(userEmail) {
+    const receiver = mockData.users.find(user => user.email === userEmail);
+    const { id } = receiver;
+    const unreadMessages = mockData.messages.filter(message => {
+      return message.status === 'unread' && message.recieverId === id;
+    });
+
+    return unreadMessages || [];
+  }
 }
 
 export default MessageService;
