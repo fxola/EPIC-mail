@@ -82,7 +82,7 @@ export default {
                 sectetur adipisicing elit. Consectetur aspernatur 
                 vitae nobis distinctio necessitatibus!`,
       senderId: null,
-      recieverId: null,
+      receiverId: null,
       parentMessageId: null,
       status: 'draft'
     },
@@ -94,7 +94,7 @@ export default {
                 sectetur adipisicing elit. Consectetur aspernatur 
                 vitae nobis distinctio necessitatibus!`,
       senderId: 4,
-      recieverId: 10,
+      receiverId: 10,
       parentMessageId: null,
       status: 'sent'
     },
@@ -106,7 +106,7 @@ export default {
                 sectetur adipisicing elit. Consectetur aspernatur 
                 vitae nobis distinctio necessitatibus!`,
       senderId: 4,
-      recieverId: 5,
+      receiverId: 5,
       parentMessageId: 21,
       status: 'sent'
     },
@@ -119,7 +119,7 @@ export default {
                 sectetur adipisicing elit. Consectetur aspernatur 
                 vitae nobis distinctio necessitatibus!`,
       senderId: 10,
-      recieverId: 4,
+      receiverId: 4,
       parentMessageId: 22,
       status: 'read'
     },
@@ -131,7 +131,7 @@ export default {
                 sectetur adipisicing elit. Consectetur aspernatur 
                 vitae nobis distinctio necessitatibus!`,
       senderId: 4,
-      recieverId: 5,
+      receiverId: 5,
       parentMessageId: 23,
       status: 'unread'
     },
@@ -143,7 +143,7 @@ export default {
                 sectetur adipisicing elit. Consectetur aspernatur 
                 vitae nobis distinctio necessitatibus!`,
       senderId: 10,
-      recieverId: 4,
+      receiverId: 4,
       parentMessageId: 24,
       status: 'unread'
     },
@@ -155,7 +155,7 @@ export default {
                 sectetur adipisicing elit. Consectetur aspernatur 
                 vitae nobis distinctio necessitatibus!`,
       senderId: 5,
-      recieverId: 4,
+      receiverId: 4,
       parentMessageId: 25,
       status: 'unread'
     }

@@ -1,2 +1,5 @@
-server/node_modules
 .env
+node_modules
+.nyc_output
+lcov.info
+server/dist
