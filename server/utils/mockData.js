@@ -146,6 +146,18 @@ export default {
       recieverId: 4,
       parentMessageId: 24,
       status: 'unread'
+    },
+    {
+      id: 26,
+      createdOn: 'Thu Mar 07 2019 12:06:36 GMT+0100 (West Africa Standard Time)',
+      subject: 'Super Important Stuff',
+      message: `Message Body Lorem ipsum dolor sit amet con
+                sectetur adipisicing elit. Consectetur aspernatur 
+                vitae nobis distinctio necessitatibus!`,
+      senderId: 5,
+      recieverId: 4,
+      parentMessageId: 25,
+      status: 'unread'
     }
   ]
 };

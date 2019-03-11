@@ -78,6 +78,21 @@ class MessageController {
       error: 'No message found'
     });
   }
+
+  static fetchAllUnreadMessages(req, res) {
+    const unreadMessages = MessageService.getAllUnreadMessages(req.body.email);
+    if (unreadMessages.length !== 0) {
+      return res.status(200).json({
+        status: 200,
+        data: unreadMessages
+      });
+    }
+
+    return res.status(404).json({
+      status: 404,
+      error: 'No message found'
+    });
+  }
 }
 
 export default MessageController;
