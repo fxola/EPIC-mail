@@ -111,8 +111,20 @@ class MessageService {
 
   static readMessage(id) {
     const foundMessage = mockData.messages.find(message => message.id === parseInt(id, 10));
-
+    if (foundMessage) {
+      // means message has been read
+      foundMessage.status = 'read';
+      const readMessageIndex = mockData.messages.findIndex(
+        message => message.id === parseInt(id, 10)
+      );
+      mockData.messages.splice(readMessageIndex, 1, foundMessage); // update found msg status to read
+    }
     return foundMessage || {};
+  }
+
+  static getSentMessages() {
+    const sentMessages = mockData.messages.filter(message => message.status === 'sent');
+    return sentMessages || {};
   }
 }
 
