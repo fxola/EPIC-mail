@@ -12,7 +12,7 @@ Template is hosted at https://fxola.github.io/EPIC-mail/UI/index.html
 
 ### API Deployment
 
-API is deployed at https://
+API is deployed at https://epicmail-api.herokuapp.com
 
 
 ## Built With
@@ -63,10 +63,10 @@ API is deployed at https://
 <pre><code>npm run test</code></pre>
 <br>
 <ul><li>Run Coverage Report</li></ul>
-<pre><code>npm run coveralls</code></pre>
+<pre><code>npm run coverage</code></pre>
 <br>
 
-###API Routes
+### API Routes
 
 |        DESCRIPTION        |  HTTP METHOD | ROUTES                   |
 |:-------------------------:|--------------|--------------------------|
