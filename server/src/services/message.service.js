@@ -86,18 +86,10 @@ class MessageService {
         senderId,
         receiverId
       );
-
       mockData.messages.push(newMessage);
-
-      return {
-        status: 201,
-        data: [newMessage]
-      };
+      return newMessage;
     } catch (err) {
-      return {
-        status: 500,
-        error: 'Failed to save'
-      };
+      return false;
     }
   }
 
@@ -136,7 +128,7 @@ class MessageService {
     const receiver = mockData.users.find(user => user.email === userEmail);
     const { id } = receiver;
     const messageList = mockData.messages.filter(message => {
-      return message.recieverId === id;
+      return message.receiverId === id;
     });
 
     return messageList || [];
@@ -146,7 +138,7 @@ class MessageService {
     const receiver = mockData.users.find(user => user.email === userEmail);
     const { id } = receiver;
     const unreadMessages = mockData.messages.filter(message => {
-      return message.status === 'unread' && message.recieverId === id;
+      return message.status === 'unread' && message.receiverId === id;
     });
 
     return unreadMessages || [];

@@ -32,54 +32,25 @@ class UserService {
       };
 
       const bearerToken = this.getToken(payload);
-      return {
-        status: 201,
-        data: [
-          {
-            token: bearerToken
-          }
-        ]
-      };
+      return bearerToken;
     } catch (err) {
-      return {
-        status: 500,
-        error: err
-      };
+      return err;
     }
   }
 
   static logUserIn(userCredentials) {
     const { email, password } = userCredentials;
 
-    try {
-      const userDetails = mockData.users.find(user => email === user.email);
-      const hash = userDetails.password;
+    const userDetails = mockData.users.find(user => email === user.email);
+    const hash = userDetails.password;
 
-      if (this.comparePassword(password, hash) === true) {
-        const bearerToken = this.getToken({ email });
+    if (this.comparePassword(password, hash) === true) {
+      const bearerToken = this.getToken({ email });
 
-        return {
-          status: 200,
-          data: [
-            {
-              token: bearerToken
-            }
-          ]
-        };
-      }
-
-      const errorResponse = {
-        status: 401,
-        error: 'Authentication Failed'
-      };
-
-      return errorResponse;
-    } catch (err) {
-      return {
-        status: 500,
-        error: err
-      };
+      return bearerToken;
     }
+
+    return false;
   }
 
   static getToken(userPayload) {

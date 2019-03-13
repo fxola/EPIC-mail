@@ -1,0 +1,29 @@
+language: node_js
+
+node_js:
+  - "node"
+
+env:
+  global: CODECLIMATE_REPO_TOKEN=42d4c9df3fc4526e545c094fca2fa110df7477263528cdcbaf242fd60ece3d58
+
+install:
+  - npm install
+
+test:
+  - npm test
+
+cache:
+  directories:
+    - "node_modules"
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+  - npm run coverage
+after_success:
+  - npm run coverage
+  - npm install codeclimate-test-reporter
+  - codeclimate-test-reporter < coverage/lcov.info
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
