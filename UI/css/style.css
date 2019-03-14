@@ -5,7 +5,7 @@
 
 body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  /* background: #223140; */
+  height: 100vh;
 }
 
 /******************************************************* 
@@ -13,7 +13,7 @@ body {
 ***********************************************************/
 
 #hero {
-  height: 100vh;
+  height: 90vh;
   /* width: 100vw; */
   display: block;
   position: relative;
@@ -30,7 +30,7 @@ body {
   background-size: 100% 100%;
   background-color: #e8f0f5;
   background-repeat: no-repeat;
-  opacity: 0.4;
+  opacity: 0.6;
   top: 0;
   left: 0;
   bottom: 0;
@@ -74,13 +74,8 @@ body {
     background-size: 100% 100% 1% 100%;
   }
 
-  #hero-content {
-    position: absolute;
-    top: 18%;
-  }
-
   #hero h1 {
-    font-size: 2em;
+    font-size: 2.4em;
     margin-bottom: 0.5em;
   }
 
@@ -96,7 +91,7 @@ body {
             SIGN IN PAGE STYLES 
 ***********************************************************/
 #signin-main {
-  height: 100vh;
+  height: 90vh;
   background-color: #fefefe;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
@@ -105,7 +100,7 @@ body {
 }
 #signin-section form {
   padding-top: 2em;
-  background: rgba(128, 207, 255, 0.3);
+  background: rgb(0, 81, 130);
   width: 40%;
   margin: 0 auto;
   display: flex;
@@ -129,7 +124,7 @@ body {
 }
 
 #signin-section form input::placeholder {
-  color: #80cfff;
+  color: rgb(0, 81, 130);
 }
 
 #signin-section form button {
@@ -137,8 +132,8 @@ body {
   width: 74%;
   font-size: 1.1em;
   margin-bottom: 1em;
-  color: #009fff;
-  background: rgba(128, 207, 255, 0.6);
+  color: rgb(0, 81, 130);
+  background: #80cfff;
   border: none;
   transition: ease 0.4s;
   cursor: pointer;
@@ -160,7 +155,7 @@ body {
 }
 
 #signin-section h3 {
-  color: grey;
+  color: white;
 }
 
 @media (max-width: 769px) {
@@ -182,7 +177,7 @@ body {
 ***********************************************************/
 
 #signup-main {
-  height: 100vh;
+  height: 90vh;
   background-color: #fefefe;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
@@ -191,7 +186,7 @@ body {
 }
 #signup-section form {
   padding-top: 2em;
-  background: rgba(128, 207, 255, 0.3);
+  background: rgb(0, 81, 130);
   width: 40%;
   margin: 0 auto;
   display: flex;
@@ -215,7 +210,7 @@ body {
 }
 
 #signup-section form input::placeholder {
-  color: #80cfff;
+  color: rgb(0, 81, 130);
 }
 
 #signup-section form button {
@@ -223,8 +218,8 @@ body {
   width: 74%;
   font-size: 1.1em;
   margin-bottom: 1em;
-  color: #009fff;
-  background: rgba(128, 207, 255, 0.6);
+  color: rgb(0, 81, 130);
+  background: #80cfff;
   border: none;
   transition: ease 0.4s;
   cursor: pointer;
@@ -246,12 +241,17 @@ body {
 }
 
 #signup-section h3 {
-  color: grey;
+  color: white;
 }
 
 @media (max-width: 769px) {
+  #signup-section {
+    height: 70vh;
+    overflow-x: auto;
+  }
   #signup-section form {
     width: 90%;
+    margin-bottom: 1em;
   }
   #signup-section form input {
     font-size: 1.2em;
@@ -268,7 +268,7 @@ body {
 ***********************************************************/
 #reset1-main,
 #reset2-main {
-  height: 100vh;
+  height: 90vh;
   background-color: #fefefe;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
@@ -277,7 +277,7 @@ body {
 }
 #reset1-section form {
   padding-top: 2em;
-  background: rgba(128, 207, 255, 0.3);
+  background: rgb(0, 81, 130);
   width: 40%;
   margin: 0 auto;
   display: flex;
@@ -301,7 +301,7 @@ body {
 }
 
 #reset1-section form input::placeholder {
-  color: #80cfff;
+  color: rgb(0, 81, 130);
 }
 
 #reset1-section form button {
@@ -309,8 +309,8 @@ body {
   width: 74%;
   font-size: 1.1em;
   margin-bottom: 1em;
-  color: #009fff;
-  background: rgba(128, 207, 255, 0.6);
+  color: rgb(0, 81, 130);
+  background: #80cfff;
   border: none;
   transition: ease 0.4s;
   cursor: pointer;
@@ -334,7 +334,7 @@ body {
 #reset1-section p {
   padding: 0 4.9em;
   margin-top: 2em;
-  color: grey;
+  color: white;
   font-size: 0.85em;
   padding-bottom: 1.4em;
 }
@@ -346,7 +346,7 @@ body {
 }
 
 #reset1-section h3 {
-  color: grey;
+  color: white;
 }
 
 .reset2-header {
@@ -392,7 +392,7 @@ nav {
 
 nav ul {
   list-style-type: none;
-  background: #80cfff;
+  background: rgb(0, 81, 130);
   padding: 0;
   margin: 0;
   color: white;
@@ -431,7 +431,7 @@ nav ul li a {
 
   nav ul {
     max-height: 0px;
-    background: #80cfff;
+    background: rgb(0, 81, 130);
   }
 
   .showing {
@@ -447,7 +447,7 @@ nav ul li a {
 
   .menu-icon {
     display: block;
-    background: #80cfff;
+    background: rgb(0, 81, 130);
   }
 }
 /******************************************************* 
@@ -455,7 +455,7 @@ nav ul li a {
 ***********************************************************/
 
 footer {
-  height: 13vh;
+  height: 10vh;
   background: #012c46;
   color: white;
   display: flex;
@@ -468,7 +468,7 @@ footer {
             DASHBOARD PAGE STYLES 
 ***********************************************************/
 #dashboard-main {
-  height: 100%;
+  height: 90vh;
   background-color: #fefefe;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
@@ -479,8 +479,8 @@ footer {
 }
 
 #create-group button {
-  background: rgba(128, 207, 255, 0.5);
-  color: rgb(128, 207, 255);
+  background: rgb(0, 81, 130);
+  color: white;
   padding: 0.5em 0 0.5em 0;
   width: 20%;
   border: none;
@@ -516,13 +516,13 @@ footer {
   outline: none;
   border: none;
   font-size: 1.2em;
-  border-bottom: 4px solid #80cfff;
-  color: #80cfff;
+  border-bottom: 4px solid rgba(0, 81, 130, 1);
+  color: rgba(0, 81, 130, 1);
 }
 
 #group-form button {
-  background: rgba(128, 207, 255, 0.5);
-  color: rgb(128, 207, 255);
+  background: rgba(0, 81, 130, 0.4);
+  color: rgba(0, 81, 130, 1);
   padding: 0.5em 0 0.5em 0;
   width: 20%;
   border: none;
@@ -544,12 +544,12 @@ button.cancel {
 }
 
 #group-form button:hover {
-  background: rgb(128, 207, 255);
+  background: rgba(0, 81, 130, 1);
   color: white;
 }
 
 #group-form input::placeholder {
-  color: #80cfff;
+  color: rgb(0, 81, 130);
 }
 
 #group-modal {
@@ -603,7 +603,7 @@ button.cancel {
   margin-top: 5em;
   left: 50%;
   transform: translate(-50%, 0);
-  height: auto;
+  height: 60vh;
   width: 50vw;
   background: #f4f7f8;
   padding: 1em;
@@ -612,10 +612,10 @@ button.cancel {
 
 #member-form button {
   margin-top: 1em;
-  background: rgba(128, 207, 255, 0.5);
-  color: rgb(128, 207, 255);
+  background: rgba(0, 81, 130, 0.4);
+  color: rgba(0, 81, 130, 1);
   padding: 0.5em 0 0.5em 0;
-  width: 20%;
+  width: 30%;
   border: none;
   cursor: pointer;
   font-size: 1.2em;
@@ -624,12 +624,12 @@ button.cancel {
 }
 
 #member-form button:hover {
-  background: rgb(128, 207, 255);
+  background: rgba(0, 81, 130, 1);
   color: white;
 }
 
 #member-scroll {
-  height: 200px;
+  height: 52vh;
   overflow: auto;
 }
 
@@ -649,6 +649,9 @@ button.cancel {
 }
 
 #group-list {
+  margin-top: 1em;
+  overflow-x: auto;
+  height: 60vh;
   padding-top: 2em;
   margin-left: auto;
   margin-right: auto;
@@ -671,9 +674,9 @@ button.cancel {
   transition: 0.3s;
   text-align: center;
   border-radius: 0.3em;
-  border: 5px solid rgba(128, 207, 255, 1);
-  background-color: rgba(128, 207, 255, 0.4);
-  color: #005182;
+  border: 5px solid rgba(0, 81, 130, 0.8);
+  background-color: rgba(0, 81, 130, 0.1);
+  color: rgba(0, 81, 130, 1);
 }
 
 #group-details:hover {
@@ -686,8 +689,8 @@ button.cancel {
 #group-details button {
   padding: 0.7em;
   margin: 1em;
-  color: rgba(0, 159, 255, 1);
-  background: rgba(0, 159, 255, 0.4);
+  color: white;
+  background: rgb(0, 81, 130);
   border: none;
   border-radius: 3px;
   transition: 0.5s;
@@ -703,7 +706,7 @@ button.cancel {
 
 @media (max-width: 769px) {
   #dashboard-main {
-    height: 100%;
+    height: 90vh;
     overflow-x: auto;
   }
 
@@ -715,13 +718,25 @@ button.cancel {
     width: 100%;
   }
 
+  #group-list {
+    overflow-x: auto;
+    height: auto;
+  }
+
   #group-form button {
     width: 100%;
     margin: 5px;
+    padding-bottom: 1em;
+  }
+  #member-scroll {
+    height: 40vh;
+    overflow: auto;
+    margin-bottom: 1em;
   }
 
   #member-form {
     width: 70%;
+    height: 60%;
   }
 
   #member-form button {
@@ -735,7 +750,7 @@ button.cancel {
             INBOX PAGE STYLES 
 ***********************************************************/
 #inbox-main {
-  height: 100%;
+  height: 90vh;
   background-color: #fefefe;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
@@ -757,6 +772,7 @@ span.date {
 }
 
 #section-inbox {
+  height: 75vh;
   margin: 0 auto;
   padding-top: 5em;
   margin-left: 10em;
@@ -766,7 +782,7 @@ span.date {
 
 #message-scroll {
   margin-top: 2.5em;
-  height: 93%;
+  height: 87%;
   overflow-x: auto;
   border-top: 1px solid #80cfff;
   background: rgba(156, 217, 255, 0.1);
@@ -787,15 +803,15 @@ span.date {
 
 /* for custom scrollbar for webkit browser*/
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 3px;
 }
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 63, 102, 0.8);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 63, 102, 0.8);
+  box-shadow: inset 0 0 3px rgba(0, 63, 102, 0.8);
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 63, 102, 0.8);
 }
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0, 63, 102, 0.8);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 63, 102, 0.8);
+  box-shadow: inset 0 0 3px rgba(0, 63, 102, 0.8);
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 63, 102, 0.8);
 }
 
 @media (max-width: 769px) {
@@ -826,7 +842,7 @@ span.date {
             SENT MESSAGES STYLES 
 ***********************************************************/
 #sent-main {
-  height: 100%;
+  height: 90vh;
   background-color: #fefefe;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
@@ -845,6 +861,7 @@ span.date {
 }
 
 #section-sent {
+  height: 75vh;
   margin: 0 auto;
   padding-top: 5em;
   margin-left: 10em;
@@ -903,12 +920,13 @@ span.retract > button {
         MESSAGE THREAD STYLES 
 ***********************************************************/
 #messages-main {
-  height: 100%;
+  height: 90vh;
   background-color: #fefefe;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 #section-messages {
+  height: 75vh;
   margin: 0 auto;
   padding-top: 5em;
   margin-left: 5em;
@@ -985,7 +1003,7 @@ p.message-meta + p {
         COMPOSE PAGE STYLES 
 ***********************************************************/
 #compose-main {
-  height: 100vh;
+  height: 90vh;
   background-color: #fefefe;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
@@ -1008,7 +1026,7 @@ p.message-meta + p {
 
 #compose-section form input {
   display: block;
-  width: 70%;
+  width: 71%;
   margin: 0 auto;
   margin-bottom: 1em;
   padding: 0.5em;
@@ -1016,12 +1034,12 @@ p.message-meta + p {
   border: none;
   background: #e8f0f5;
   font-size: 1.2em;
-  border-bottom: 4px solid #80cfff;
-  color: #80cfff;
+  border-bottom: 4px solid rgb(0, 81, 130);
+  color: rgb(0, 81, 130);
 }
 
 #compose-section form input::placeholder {
-  color: #80cfff;
+  color: rgb(0, 81, 130);
 }
 
 #compose-section h1 {
@@ -1031,11 +1049,11 @@ p.message-meta + p {
 
 #compose-section form button {
   padding: 0.7em;
-  width: 72%;
+  width: 73%;
   font-size: 1.1em;
   margin-bottom: 1em;
-  color: #009fff;
-  background: rgba(128, 207, 255, 0.6);
+  color: white;
+  background: rgb(0, 81, 130);
   border: none;
   transition: ease 0.4s;
   cursor: pointer;
@@ -1049,11 +1067,11 @@ p.message-meta + p {
 
 textarea {
   margin-bottom: 3em;
-  width: 68.5%;
+  width: 69.5%;
   border: none;
-  border-bottom: 4px solid #80cfff;
+  border-bottom: 4px solid rgb(0, 81, 130);
   background: #e8f0f5;
-  color: #80cfff;
+  color: rgb(0, 81, 130);
   padding: 1em;
   font-size: 1.3em;
   font-weight: 900;
@@ -1061,14 +1079,14 @@ textarea {
 }
 
 textarea::-webkit-input-placeholder {
-  color: #80cfff;
+  color: rgb(0, 81, 130);
   font-size: 1.2em;
   font-weight: 900;
 }
 
 @media (max-width: 769px) {
   #compose-main {
-    height: 100vh;
+    height: 90vh;
   }
 
   #compose-section form {
@@ -1095,7 +1113,7 @@ textarea::-webkit-input-placeholder {
         DRAFTS PAGE STYLES 
 ***********************************************************/
 #draft-main {
-  height: 100%;
+  height: 90vh;
   background-color: #fefefe;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
@@ -1103,6 +1121,7 @@ textarea::-webkit-input-placeholder {
   text-align: center;
 }
 #section-draft {
+  height: 75vh;
   margin: 0 auto;
   padding-top: 5em;
   margin-left: 10em;
@@ -1142,7 +1161,7 @@ span.delete > button {
 }
 
 #compose-draft-main {
-  height: 100vh;
+  height: 90vh;
   background-color: #fefefe;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2380cfff' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
@@ -1177,8 +1196,8 @@ span.delete > button {
   border: none;
   background: #e8f0f5;
   font-size: 1.2em;
-  border-bottom: 4px solid #80cfff;
-  color: #80cfff;
+  border-bottom: 4px solid rgb(0, 81, 130);
+  color: rgb(0, 81, 130);
 }
 
 #compose-draft-section form button {
@@ -1186,8 +1205,8 @@ span.delete > button {
   width: 72%;
   font-size: 1.1em;
   margin-bottom: 1em;
-  color: #009fff;
-  background: rgba(128, 207, 255, 0.6);
+  color: white;
+  background: rgb(0, 81, 130);
   border: none;
   transition: ease 0.4s;
   cursor: pointer;
@@ -1195,6 +1214,10 @@ span.delete > button {
 }
 
 @media (max-width: 769px) {
+  #compose-draft-section {
+    height: 74vh;
+    overflow-x: auto;
+  }
   #compose-draft-section form {
     width: 100%;
   }
