@@ -16,7 +16,7 @@ describe('First test', () => {
       .get('/')
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res.text).to.equal('Up and Running');
+        expect(res.body.message).to.equal('Welcome To EPIC-Mail');
       });
   });
 });

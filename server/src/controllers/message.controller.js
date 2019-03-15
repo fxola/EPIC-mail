@@ -1,7 +1,21 @@
 /* eslint-disable default-case */
 import MessageService from '../services/message.service';
-
+/**
+ *
+ * @class MessageController
+ * @description Specifies which method handles a given request for a specific endpoint
+ * @exports MessageController
+ */
 class MessageController {
+  /**
+   *
+   * Creates a new message
+   * @static
+   * @param {Object} req
+   * @param {Object} res
+   * @returns {Object} JSON API Response
+   * @memberof MessageController
+   */
   static createMessage(req, res) {
     const newMessage = MessageService.createMessage(req.body, req.body.email);
     if (newMessage) {
@@ -18,6 +32,15 @@ class MessageController {
     });
   }
 
+  /**
+   *
+   * Retracts/deletes a specific message
+   * @static
+   * @param {Object} req
+   * @param {Object} res
+   * @returns {Object} JSON API Response
+   * @memberof MessageController
+   */
   static retractMessage(req, res) {
     const retractedMessage = MessageService.retractMessage(req.params.id);
 
@@ -40,6 +63,15 @@ class MessageController {
     });
   }
 
+  /**
+   *
+   * Reads a specific message
+   * @static
+   * @param {Object} req
+   * @param {Object} res
+   * @returns {Object} JSON API Response
+   * @memberof MessageController
+   */
   static readMessage(req, res) {
     const readMessage = MessageService.readMessage(req.params.id);
 
@@ -58,6 +90,15 @@ class MessageController {
     });
   }
 
+  /**
+   *
+   * Fetches all messages related to a specific User depending on the route provided
+   * @static
+   * @param {Object} req
+   * @param {Object} res
+   * @returns {Object} JSON API Response
+   * @memberof MessageController
+   */
   static fetchMessages(req, res) {
     let message;
     let result;
