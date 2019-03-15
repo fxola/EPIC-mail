@@ -1,6 +1,21 @@
 import UserService from '../services/user.service';
 
+/**
+ *
+ * @class UserController
+ * @description Specifies which method handles a given request for a specific endpoint
+ * @exports UserController
+ */
 class UserController {
+  /**
+   *
+   * Creates a new User if valid credentials are provided
+   * @static
+   * @param {Object} req
+   * @param {Object} res
+   * @returns {Object} JSON API Response
+   * @memberof UserController
+   */
   static createUser(req, res) {
     const newUser = req.body;
     const result = UserService.createUser(newUser);
@@ -23,6 +38,15 @@ class UserController {
     });
   }
 
+  /**
+   *
+   * Logs a user in if valid credentials are provided
+   * @static
+   * @param {Object} req
+   * @param {Object} res
+   * @returns {Object} JSON API Response
+   * @memberof UserController
+   */
   static logUserIn(req, res) {
     const userCredentials = req.body;
     const bearerToken = UserService.logUserIn(userCredentials);

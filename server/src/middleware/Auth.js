@@ -4,7 +4,22 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+/**
+ *
+ *@exports
+ * @class Auth
+ */
 class Auth {
+  /**
+   *
+   * Handles Authorization and determines who is currently logged in if authorization is successful
+   * @static
+   * @param {Object} req
+   * @param {Object} res
+   * @param {function} next
+   * @returns {(function|Object)} Function next() or an error Object
+   * @memberof Auth
+   */
   static getUser(req, res, next) {
     try {
       if (!req.headers.authorization) throw new Error('You do not have access to this page');

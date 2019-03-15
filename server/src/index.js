@@ -9,10 +9,15 @@ import messageRoutes from './routes/message.route';
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  return res.send('Up and Running');
+  return res.send({
+    status: 200,
+    message: 'Welcome To EPIC-Mail'
+  });
 });
 
 // Handles

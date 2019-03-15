@@ -1,4 +1,21 @@
+/**
+ *
+ *@exports
+ * @class Message
+ */
 class Message {
+  /**
+   *Creates an instance of Message.
+   * @param {integer} id
+   * @param {string} createdOn
+   * @param {string} subject
+   * @param {string} message
+   * @param {integer} [parentMessageId=null]
+   * @param {string} [status='draft']
+   * @param {integer} [senderId=null]
+   * @param {integer} [receiverId=null]
+   * @memberof Message
+   */
   constructor(
     id,
     createdOn,

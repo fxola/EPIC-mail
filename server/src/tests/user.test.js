@@ -40,8 +40,8 @@ describe('Tests for all Auth(signup and signin) Endpoints', () => {
           password: 'simpleandweet'
         })
         .end((err, res) => {
-          expect(res).to.have.status(403);
-          expect(res.body.status).to.be.equal(403);
+          expect(res).to.have.status(422);
+          expect(res.body.status).to.be.equal(422);
           expect(res.body.error).to.be.equal('Invalid email address');
           done();
         });
@@ -57,11 +57,29 @@ describe('Tests for all Auth(signup and signin) Endpoints', () => {
           password: 'simpl'
         })
         .end((err, res) => {
-          expect(res).to.have.status(403);
-          expect(res.body.status).to.be.equal(403);
+          expect(res).to.have.status(406);
+          expect(res.body.status).to.be.equal(406);
           expect(res.body.error).to.be.equal('Invalid password provided');
           expect(res.body.message).to.be.equal('Password must not be less than six(6) characters');
-          done();
+          done(err);
+        });
+    });
+    it('Should return an error if the user provides password with whitespace in between', done => {
+      chai
+        .request(app)
+        .post('/api/v1/auth/signup')
+        .send({
+          firstName: 'jon',
+          lastName: 'bellion',
+          email: 'jon@gmail.com',
+          password: 'simpl eand'
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(422);
+          expect(res.body.status).to.be.equal(422);
+          expect(res.body.error).to.be.equal('Invalid password provided');
+          expect(res.body.message).to.be.equal('No spaces allowed in the password');
+          done(err);
         });
     });
     it('Should return an error if the user provides no firstname', done => {
@@ -95,6 +113,25 @@ describe('Tests for all Auth(signup and signin) Endpoints', () => {
           expect(res).to.have.status(422);
           expect(res.body.status).to.be.equal(422);
           expect(res.body.error).to.be.equal('Invalid name Provided.');
+          done();
+        });
+    });
+    it('Should return an error if the user name with whitespace', done => {
+      chai
+        .request(app)
+        .post('/api/v1/auth/signup')
+        .send({
+          firstName: 'jon bellion',
+          lastName: 'middlename',
+          email: 'jon@gmail.com',
+          password: 'simpleandsweet'
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(422);
+          expect(res.body.status).to.be.equal(422);
+          expect(res.body.error).to.be.equal('Invalid firstname/lastname provided');
+          expect(res.body.message).to.be.equal('No spaces are allowed in the firstname/lastname');
+
           done();
         });
     });

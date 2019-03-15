@@ -97,6 +97,26 @@ describe('Tests for all messages Endpoints', () => {
           done(err);
         });
     });
+    it('Should send an error if user does not provide message body', done => {
+      chai
+        .request(app)
+        .post('/api/v1/messages')
+        .set('Authorization', `Bearer ${userToken}`)
+        .send({
+          to: '',
+          subject: 'draft for my new album newsletter',
+          message: ''
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(422);
+          expect(res.body.status).to.be.equal(422);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.keys('status', 'error', 'message');
+          expect(res.body.error).to.be.equal('Invalid Message Provided.');
+          expect(res.body.message).to.be.equal('Message subject/body can not be empty');
+          done(err);
+        });
+    });
     it('Should send an error if user does not have Authorization to send message', done => {
       chai
         .request(app)
