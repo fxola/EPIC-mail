@@ -14,7 +14,7 @@
     "coveralls-coverage": "coveralls < lcov.info",
     "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
     "coverage": "nyc npm run test && npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage",
-    "heroku-postbuild":" echo hellooooo"
+    "heroku-postbuild": " echo hellooooo"
   },
   "repository": {
     "type": "git",
@@ -42,7 +42,8 @@
     "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
-    "jsonwebtoken": "^8.5.0"
+    "jsonwebtoken": "^8.5.0",
+    "swagger-ui-express": "^4.0.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",

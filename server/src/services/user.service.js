@@ -6,7 +6,20 @@ import User from '../models/user.model';
 
 dotenv.config();
 
+/**
+ *
+ * @class UserService
+ * @exports UserService
+ */
 class UserService {
+  /**
+   *
+   * Handles the logic for creating a new user
+   * @static
+   * @param {Object} userDetails details present in the request body
+   * @returns {(String|Object)} A token string or an error object
+   * @memberof UserService
+   */
   static createUser(userDetails) {
     const { email, firstName, lastName, password } = userDetails;
 
@@ -22,13 +35,9 @@ class UserService {
       // updating the db with the newly created user
       mockData.users.push(newUser);
 
-      const { payloadId, payloadEmail, payloadfirstName, payloadLastName } = newUser;
-
+      const payloadEmail = newUser.email;
       const payload = {
-        payloadId,
-        payloadEmail,
-        payloadfirstName,
-        payloadLastName
+        payloadEmail
       };
 
       const bearerToken = this.getToken(payload);
@@ -38,6 +47,14 @@ class UserService {
     }
   }
 
+  /**
+   *
+   * Handles the logic for logging  a user in
+   * @static
+   * @param {Object} userCredentials details present in the request body
+   * @returns {(String|Boolean)} A token string or a Boolean
+   * @memberof UserService
+   */
   static logUserIn(userCredentials) {
     const { email, password } = userCredentials;
 
@@ -53,10 +70,26 @@ class UserService {
     return false;
   }
 
+  /**
+   *
+   * Generates token string
+   * @static
+   * @param {Object} userPayload Incoming payload required to generate token
+   * @returns {String} A token string
+   * @memberof UserService
+   */
   static getToken(userPayload) {
     return jwt.sign(userPayload, process.env.SECRET, { expiresIn: '1h' });
   }
 
+  /**
+   *
+   * Generates token string
+   * @static
+   * @param {String} password password required to be encrypted
+   * @returns {String} A hash string
+   * @memberof UserService
+   */
   static hashPassword(password) {
     const hash = bcrypt.hashSync(password, 10, (err, result) => {
       if (err) {
@@ -67,6 +100,15 @@ class UserService {
     return hash;
   }
 
+  /**
+   *
+   * Compares a password against a hash
+   * @static
+   * @param {String} password password required to be encrypted
+   * @param {String} hash data to be compared against
+   * @returns {Boolean}
+   * @memberof UserService
+   */
   static comparePassword(password, hash) {
     const result = bcrypt.compareSync(password, hash);
     return result;

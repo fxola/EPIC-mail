@@ -1,8 +1,21 @@
 import mockData from '../utils/mockData';
-// import Contact from '../models/contact.model';
 import Message from '../models/message.model';
 
+/**
+ *
+ * @class MessageService
+ * @exports MessageService
+ */
 class MessageService {
+  /**
+   *
+   * Handles the logic for creating a new message
+   * @static
+   * @param {Object} incomingMessage message details present in the request body
+   * @param {String} senderEmail email of the currently logged in user
+   * @returns {Object} A new message object
+   * @memberof MessageService
+   */
   static createMessage(incomingMessage, senderEmail) {
     const receiverEmail = incomingMessage.to;
 
@@ -24,6 +37,16 @@ class MessageService {
     return this.saveMessage(id, incomingMessage);
   }
 
+  /**
+   *
+   * Handles the logic for sending a new message
+   * @static
+   * @param {Object} incomingMessage message details present in the request body
+   * @param {number} receiverId ID of the message receiver
+   * @param {String} senderEmail email of the currently logged in user
+   * @returns {Object} A new message object
+   * @memberof MessageService
+   */
   static sendMessage(incomingMessage, receiverId, senderEmail) {
     const sender = mockData.users.find(user => senderEmail === user.email);
     const senderId = sender.id;
@@ -63,6 +86,15 @@ class MessageService {
     return newMessage;
   }
 
+  /**
+   *
+   * Handles the logic for saving a message
+   * @static
+   * @param {Object} incomingMessage message details
+   * @param {number} id ID of the message
+   * @returns {Object} A new message object
+   * @memberof MessageService
+   */
   static saveMessage(id, incomingMessage) {
     try {
       const createdOn = new Date();
@@ -93,6 +125,14 @@ class MessageService {
     }
   }
 
+  /**
+   *
+   * Handles the logic for retracting a message
+   * @static
+   * @param {number} id ID of the message to be deleted
+   * @returns {(Object|Boolean)} The deleted message object or Boolean
+   * @memberof MessageService
+   */
   static retractMessage(id) {
     const messageIndex = mockData.messages.findIndex(message => message.id === parseInt(id, 10));
     if (messageIndex !== -1) {
@@ -101,6 +141,14 @@ class MessageService {
     return false;
   }
 
+  /**
+   *
+   * Handles the logic for reading a specific message
+   * @static
+   * @param {number} id ID of the message to be read
+   * @returns {Object} The read message object or an empty object
+   * @memberof MessageService
+   */
   static readMessage(id) {
     const foundMessage = mockData.messages.find(message => message.id === parseInt(id, 10));
     if (foundMessage) {
@@ -114,6 +162,14 @@ class MessageService {
     return foundMessage || {};
   }
 
+  /**
+   *
+   * Handles the logic for getting all a user's sent messages
+   * @static
+   * @param {String} userEmail email of the currently logged in user
+   * @returns {Array} An array of all sent messages found for a user or an empty array
+   * @memberof MessageService
+   */
   static getSentMessages(userEmail) {
     const sender = mockData.users.find(user => user.email === userEmail);
     const { id } = sender;
@@ -124,6 +180,14 @@ class MessageService {
     return sentMessages || [];
   }
 
+  /**
+   *
+   * Handles the logic for getting all a user's messages
+   * @static
+   * @param {String} userEmail email of the currently logged in user
+   * @returns {Array} An array of all messages found for a user or an empty array
+   * @memberof MessageService
+   */
   static getAllMessages(userEmail) {
     const receiver = mockData.users.find(user => user.email === userEmail);
     const { id } = receiver;
@@ -134,6 +198,14 @@ class MessageService {
     return messageList || [];
   }
 
+  /**
+   *
+   * Handles the logic for getting all a user's unread messages
+   * @static
+   * @param {String} userEmail email of the currently logged in user
+   * @returns {Array} An array of all unread messages found for a user or an empty array
+   * @memberof MessageService
+   */
   static getAllUnreadMessages(userEmail) {
     const receiver = mockData.users.find(user => user.email === userEmail);
     const { id } = receiver;

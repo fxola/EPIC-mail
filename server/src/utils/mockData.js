@@ -21,13 +21,6 @@ export default {
       email: 'fola@gmail.com',
       password: 'anotherone'
     }
-    // {
-    //   id: 4,
-    //   firstName: 'jon',
-    //   lastName: 'bellion',
-    //   email: 'jon@gmail.com',
-    //   password: 'simpleandsweet'
-    // }
   ],
   contacts: [
     {
