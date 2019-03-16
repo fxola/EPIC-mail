@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/fxola/EPIC-mail.svg?branch=develop)](https://travis-ci.org/fxola/EPIC-mail) [![Maintainability](https://api.codeclimate.com/v1/badges/4a65e80443dd980aab5f/maintainability)](https://codeclimate.com/github/fxola/EPIC-mail/maintainability) [![Coverage Status](https://coveralls.io/repos/github/fxola/EPIC-mail/badge.svg)](https://coveralls.io/github/fxola/EPIC-mail) 
+[![Build Status](https://travis-ci.org/fxola/EPIC-mail.svg?branch=develop)](https://travis-ci.org/fxola/EPIC-mail) [![Maintainability](https://api.codeclimate.com/v1/badges/4a65e80443dd980aab5f/maintainability)](https://codeclimate.com/github/fxola/EPIC-mail/maintainability) [![Coverage Status](https://coveralls.io/repos/github/fxola/EPIC-mail/badge.svg?branch=develop)](https://coveralls.io/github/fxola/EPIC-mail?branch=develop) [![Test Coverage](https://api.codeclimate.com/v1/badges/4a65e80443dd980aab5f/test_coverage)](https://codeclimate.com/github/fxola/EPIC-mail/test_coverage)
 
 # EPIC-mail
 A web app that helps people exchange messages/information over the internet
