@@ -6,8 +6,11 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from './swagger';
 
 // Routes
-import userRoutes from './routes/user.route';
-import messageRoutes from './routes/message.route';
+import userRoutes from './v1/routes/user.route';
+import messageRoutes from './v1/routes/message.route';
+
+import userRoutesV2 from './v2/routes/user.route';
+import messageRoutesV2 from './v2/routes/message.route';
 
 const app = express();
 
@@ -28,6 +31,8 @@ app.get('/', (req, res) => {
 // Handles
 app.use('/api/v1/messages', messageRoutes);
 app.use('/api/v1/auth', userRoutes);
+app.use('/api/v2/messages', messageRoutesV2);
+app.use('/api/v2/auth', userRoutesV2);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
