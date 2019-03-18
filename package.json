@@ -4,9 +4,12 @@
   "description": "A web application that allows people exchange information over the internet",
   "main": "index.js",
   "scripts": {
-    "test": "mocha server/src/tests/*.js --require @babel/register --timeout 50000 --exit || true",
+    "test": "mocha server/src/v1/tests/*.js --require @babel/register --timeout 50000 --exit || true",
     "test-watch": "nodemon --exec \"npm test\"",
     "start": "nodemon --exec babel-node server/src/index.js",
+    "migrate": "babel-node server/src/v2/models/migrate",
+    "unmigrate": "babel-node server/src/v2/models/unmigrate",
+    "migrations": "npm run unmigrate && npm run migrate",
     "babel-build": "babel server/src -d server/dist && node server/dist/index",
     "clean": "rm -rf dist && mkdir dist",
     "build": "npm run clean && npm run babel-build",
@@ -43,6 +46,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.0",
+    "pg": "^7.9.0",
     "swagger-ui-express": "^4.0.2"
   },
   "devDependencies": {
