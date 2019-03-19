@@ -16,9 +16,9 @@ class UserController {
    * @returns {Object} JSON API Response
    * @memberof UserController
    */
-  static createUser(req, res) {
+  static async createUser(req, res) {
     const newUser = req.body;
-    const result = UserService.createUser(newUser);
+    const result = await UserService.createUser(newUser);
     if (typeof result === 'string') {
       return res.status(201).json({
         status: 201,
@@ -47,9 +47,9 @@ class UserController {
    * @returns {Object} JSON API Response
    * @memberof UserController
    */
-  static logUserIn(req, res) {
+  static async logUserIn(req, res) {
     const userCredentials = req.body;
-    const bearerToken = UserService.logUserIn(userCredentials);
+    const bearerToken = await UserService.logUserIn(userCredentials);
     if (bearerToken) {
       return res.status(200).json({
         status: 200,

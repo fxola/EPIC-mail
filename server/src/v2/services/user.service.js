@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import mockData from '../utils/mockData';
-import User from '../models/user.model';
+
+import db from '../models/db';
 
 dotenv.config();
 
@@ -20,22 +20,16 @@ class UserService {
    * @returns {(String|Object)} A token string or an error object
    * @memberof UserService
    */
-  static createUser(userDetails) {
+  static async createUser(userDetails) {
     const { email, firstName, lastName, password } = userDetails;
 
     try {
       const hashedPassword = this.hashPassword(password);
-      // logic for creating a new user ID
-      const userLength = mockData.users.length;
-      const lastUserId = mockData.users[userLength - 1].id;
-      const id = lastUserId + 1;
 
-      const newUser = new User(id, email, firstName, lastName, hashedPassword);
+      const query = `insert into users (email, first_name,last_name, password,role) values ($1,$2,$3,$4,$5) returning *`;
+      const { rows } = await db.query(query, [email, firstName, lastName, hashedPassword, 2]);
+      const payloadEmail = rows[0].email;
 
-      // updating the db with the newly created user
-      mockData.users.push(newUser);
-
-      const payloadEmail = newUser.email;
       const payload = {
         payloadEmail
       };
@@ -55,18 +49,21 @@ class UserService {
    * @returns {(String|Boolean)} A token string or a Boolean
    * @memberof UserService
    */
-  static logUserIn(userCredentials) {
+  static async logUserIn(userCredentials) {
     const { email, password } = userCredentials;
+    try {
+      const query = `select * from users where email = $1`;
+      const { rows } = await db.query(query, [email]);
+      const hash = rows[0].password;
 
-    const userDetails = mockData.users.find(user => email === user.email);
-    const hash = userDetails.password;
+      if (this.comparePassword(password, hash) === true) {
+        const bearerToken = this.getToken({ email });
 
-    if (this.comparePassword(password, hash) === true) {
-      const bearerToken = this.getToken({ email });
-
-      return bearerToken;
+        return bearerToken;
+      }
+    } catch (e) {
+      return e;
     }
-
     return false;
   }
 
