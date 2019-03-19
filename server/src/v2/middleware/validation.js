@@ -1,6 +1,5 @@
 /* eslint-disable default-case */
-// import mockData from '../utils/';
-
+import db from '../models/db';
 /**
  *
  *exports
@@ -20,7 +19,6 @@ class Validation {
   static check(req, res, next) {
     const userDetails = req.body;
     const { email, firstName, lastName, password } = userDetails;
-
     const trimmedEmail = email.trim();
     const trimmedFirstName = firstName.trim();
     const trimmedLastName = lastName.trim();
@@ -51,11 +49,29 @@ class Validation {
       return Validation.invalidPasswordResponse(res, 'length');
     }
 
-    // if (Validation.emailExists(trimmedEmail)) {
-    //   return Validation.emailExistsResponse(res);
-    // }
+    if (Validation.emailExists(trimmedEmail)) {
+      return Validation.emailExistsResponse(res);
+    }
 
     return next();
+  }
+
+  /**
+   *
+   * Checks if an email address exists in the database
+   * @static
+   * @param {String} userEmail email to run a check against
+   * @returns {Boolean} Boolean depending on success or failure of the check
+   * @memberof Validation
+   */
+  static async emailExists(userEmail) {
+    try {
+      const query = `select email from users where email = $1`;
+      const { rows } = await db.query(query, [userEmail]);
+      return !!(rows.length !== 0);
+    } catch (e) {
+      return e;
+    }
   }
 
   /**
@@ -68,11 +84,12 @@ class Validation {
    * @returns {(function|Object)} function next() or an error response object
    * @memberof Validation
    */
-  static loginCheck(req, res, next) {
+  static async loginCheck(req, res, next) {
     const { email } = req.body;
-    // if (!Validation.emailExists(email)) {
-    //   return Validation.invalidCrendentialsResponse(res);
-    // }
+    const emailExists = await Validation.emailExists(email);
+    if (!emailExists) {
+      return Validation.invalidCrendentialsResponse(res);
+    }
     return next();
   }
 
@@ -234,21 +251,6 @@ class Validation {
       message: 'Please provide another email address'
     });
   }
-
-  // /**
-  //  *
-  //  * Checks if an email address exists in the database
-  //  * @static
-  //  * @param {String} userEmail email to run a check against
-  //  * @returns {Boolean} Boolean depending on success or failure of the check
-  //  * @memberof Validation
-  //  */
-  // static emailExists(userEmail) {
-  //   const existingEmails = mockData.users.reduce((emailArray, userDetail) => {
-  //     return emailArray.concat(userDetail.email);
-  //   }, []);
-  //   return existingEmails.includes(userEmail);
-  // }
 }
 
 export default Validation;
