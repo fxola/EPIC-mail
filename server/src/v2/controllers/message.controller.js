@@ -16,8 +16,8 @@ class MessageController {
    * @returns {Object} JSON API Response
    * @memberof MessageController
    */
-  static createMessage(req, res) {
-    const newMessage = MessageService.createMessage(req.body, req.body.email);
+  static async createMessage(req, res) {
+    const newMessage = await MessageService.createMessage(req.body, req.body.email);
     if (newMessage) {
       return res.status(201).send({
         status: 201,
@@ -41,8 +41,16 @@ class MessageController {
    * @returns {Object} JSON API Response
    * @memberof MessageController
    */
-  static retractMessage(req, res) {
-    const retractedMessage = MessageService.retractMessage(req.params.id);
+  static async retractMessage(req, res) {
+    if (!Number(req.params.id)) {
+      return res.status(403).json({
+        status: 403,
+        error: 'Request Forbidden',
+        message: 'Invalid ID provided'
+      });
+    }
+
+    const retractedMessage = await MessageService.retractMessage(req.params.id, req.body.email);
 
     if (retractedMessage) {
       return res.status(200).json({
@@ -72,8 +80,15 @@ class MessageController {
    * @returns {Object} JSON API Response
    * @memberof MessageController
    */
-  static readMessage(req, res) {
-    const readMessage = MessageService.readMessage(req.params.id);
+  static async readMessage(req, res) {
+    if (!Number(req.params.id)) {
+      return res.status(403).json({
+        status: 403,
+        error: 'Request Forbidden',
+        message: 'Invalid ID provided'
+      });
+    }
+    const readMessage = await MessageService.readMessage(req.params.id);
 
     if (Object.entries(readMessage).length !== 0) {
       return res.status(200).json({
@@ -99,20 +114,20 @@ class MessageController {
    * @returns {Object} JSON API Response
    * @memberof MessageController
    */
-  static fetchMessages(req, res) {
+  static async fetchMessages(req, res) {
     let message;
     let result;
     switch (req.url) {
       case '/':
-        result = MessageService.getAllMessages(req.body.email);
+        result = await MessageService.getMessages(req.body.email, 'all');
         message = `Request successful. You have ${result.length} message(s)`;
         break;
       case '/sent':
-        result = MessageService.getSentMessages(req.body.email);
+        result = await MessageService.getMessages(req.body.email, 'sent');
         message = `Request successful. You have sent ${result.length} message(s) in total`;
         break;
       case '/unread':
-        result = MessageService.getAllUnreadMessages(req.body.email);
+        result = await MessageService.getMessages(req.body.email, 'unread');
         message = `Request successful. You have ${result.length} unread message(s)`;
         break;
     }

@@ -33,8 +33,5 @@ pool.on('remove', () => {
   process.exit(0);
 });
 
-const usersQueryText = 'DROP TABLE IF EXISTS users';
-dropTable(usersQueryText);
-
-const messagesQueryText = 'DROP TABLE IF EXISTS messages';
-dropTable(messagesQueryText);
+const QueryText = 'DROP TABLE IF EXISTS users, messages, inbox, sent, conversation';
+dropTable(QueryText);
