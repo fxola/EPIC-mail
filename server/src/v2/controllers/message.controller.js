@@ -90,10 +90,10 @@ class MessageController {
     }
     const readMessage = await MessageService.readMessage(req.params.id);
 
-    if (Object.entries(readMessage).length !== 0) {
+    if (Object.entries(readMessage).length > 0) {
       return res.status(200).json({
         status: 200,
-        data: [readMessage],
+        data: readMessage,
         message: `Request successful`
       });
     }
@@ -132,7 +132,7 @@ class MessageController {
         break;
     }
 
-    if (result.length !== 0) {
+    if (result.length > 0) {
       return res.status(200).json({
         status: 200,
         data: result,

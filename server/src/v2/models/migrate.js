@@ -27,8 +27,8 @@ export const userSchema = async () => {
             first_name varchar(128) NOT NULL,
             last_name varchar(128) NOT NULL,
             email varchar(128) NOT NULL UNIQUE,
-            password varchar(128) NOT NULL,
-            role integer  DEFAULT '1')
+            password varchar(128) NOT NULL
+            )
         `;
   await pool
     .query(users)
@@ -95,6 +95,48 @@ CREATE TABLE conversation (
 `;
   await pool
     .query(conversation)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const groupSchema = async () => {
+  const group = `
+  CREATE TABLE groups (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(128) NOT NULL,
+    owner_id INTEGER NOT NULL,
+    role TEXT NOT NULL DEFAULT 'admin',
+    created_on TIMESTAMP WITH TIME ZONE DEFAULT now(),
+    FOREIGN KEY (owner_id) references users (id) on DELETE CASCADE  
+    )
+`;
+  await pool
+    .query(group)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const groupMembersSchema = async () => {
+  const groupMembers = `
+  CREATE TABLE group_members (
+  id SERIAL NOT NULL PRIMARY KEY,
+  group_id INTEGER,
+  member_id INTEGER,
+  created_on TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  FOREIGN KEY (group_id) REFERENCES groups (id) ON DELETE CASCADE,
+  FOREIGN KEY (member_id) REFERENCES users (id) ON DELETE CASCADE 
+    )
+`;
+  await pool
+    .query(groupMembers)
     .then(res => {
       console.log(res);
     })
