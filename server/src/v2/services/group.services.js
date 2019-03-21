@@ -20,6 +20,14 @@ class GroupService {
     const group = rows[0];
     return group;
   }
+
+  static async getGroups(userEmail) {
+    const userId = await this.getUserId(userEmail);
+    const query = `select * from groups where owner_id = $1`;
+    const { rows } = await db.query(query, [userId]);
+    if (rows.length > 0) return rows;
+    return false;
+  }
 }
 
 export default GroupService;

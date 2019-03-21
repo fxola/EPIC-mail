@@ -16,6 +16,22 @@ class GroupController {
       message: 'Request Unsucessful'
     });
   }
+
+  static async getGroups(req, res) {
+    const groups = await groupService.getGroups(req.body.email);
+    if (groups) {
+      return res.status(200).json({
+        status: 200,
+        data: groups,
+        message: `Request succesful. You belong to ${groups.length} group(s)`
+      });
+    }
+    return res.status(404).json({
+      status: 404,
+      error: 'No group found',
+      message: 'Request Unsuccessful. You do not belong to any group presently'
+    });
+  }
 }
 
 export default GroupController;
