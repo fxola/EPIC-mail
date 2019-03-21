@@ -26,8 +26,8 @@ class UserService {
     try {
       const hashedPassword = this.hashPassword(password);
 
-      const query = `insert into users (email, first_name,last_name, password,role) values ($1,$2,$3,$4,$5) returning *`;
-      const { rows } = await db.query(query, [email, firstName, lastName, hashedPassword, 2]);
+      const query = `insert into users (email, first_name,last_name, password) values ($1,$2,$3,$4) returning *`;
+      const { rows } = await db.query(query, [email, firstName, lastName, hashedPassword]);
       const payloadEmail = rows[0].email;
 
       const payload = {

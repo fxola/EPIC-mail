@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import pg from 'pg';
 import dotenv from 'dotenv';
 
@@ -19,9 +20,18 @@ pool.on('error', err => {
 /**
  * Create Tables
  */
-const createTable = queryText => {
-  pool
-    .query(queryText)
+export const userSchema = async () => {
+  const users = `
+    CREATE TABLE users (
+            id serial primary key NOT NULL,
+            first_name varchar(128) NOT NULL,
+            last_name varchar(128) NOT NULL,
+            email varchar(128) NOT NULL UNIQUE,
+            password varchar(128) NOT NULL,
+            role integer  DEFAULT '1')
+        `;
+  await pool
+    .query(users)
     .then(res => {
       console.log(res);
     })
@@ -30,29 +40,65 @@ const createTable = queryText => {
     });
 };
 
-const usersQueryText = `CREATE TABLE IF NOT EXISTS
-users(
-  id SERIAL PRIMARY KEY,
-  first_name VARCHAR(128) NOT NULL,
-  last_name VARCHAR(128) NOT NULL,
-  email VARCHAR(128) NOT NULL,
-  password VARCHAR(128) NOT NULL,
-  role INT NOT NULL,
-  created_on TIMESTAMP,
-  updated_on TIMESTAMP
-)`;
-createTable(usersQueryText);
+export const messagesSchema = async () => {
+  const messages = `
+CREATE TABLE messages (
+              id serial primary key NOT NULL,
+              message varchar(255) NOT NULL,
+              subject varchar(255) NOT NULL,
+              parent_message_id integer DEFAULT -1 ,
+              user_id integer NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+              created_on TIMESTAMP WITH TIME ZONE DEFAULT now(),
+              updated_on TIMESTAMP WITH TIME ZONE DEFAULT now(),
+              status TEXT NOT NULL DEFAULT 'draft')
+`;
+  await pool
+    .query(messages)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 
-const messagesQueryText = `CREATE TABLE IF NOT EXISTS
-messages(
-  id SERIAL PRIMARY KEY,
-  subject VARCHAR(128) NOT NULL,
-  message VARCHAR(128) NOT NULL,
-  sender_id INT NOT NULL,
-  receiver_id INT NOT NULL,
-  parent_message_id INT NOT NULL,
-  status INT NOT NULL,
-  created_on TIMESTAMP,
-  updated_on TIMESTAMP
-)`;
-createTable(messagesQueryText);
+export const inboxSchema = async () => {
+  const inbox = `
+CREATE TABLE inbox (
+            id serial primary key NOT NULL,
+            receiver_id integer NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+            message_id integer NOT NULL REFERENCES messages(id) ON DELETE CASCADE,
+            status TEXT NOT NULL DEFAULT 'unread',
+            created_on TIMESTAMP WITH TIME ZONE DEFAULT now(),
+            updated_on TIMESTAMP WITH TIME ZONE DEFAULT now()
+            )
+`;
+  await pool
+    .query(inbox)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const conversationSchema = async () => {
+  const conversation = `
+CREATE TABLE conversation (
+            id serial primary key NOT NULL,
+            parent_message_id integer DEFAULT -1 REFERENCES messages(id) ON DELETE CASCADE,
+            message varchar(255) NOT NULL,
+            created_on TIMESTAMP WITH TIME ZONE DEFAULT now(),
+            updated_on TIMESTAMP WITH TIME ZONE DEFAULT now()
+            )          
+`;
+  await pool
+    .query(conversation)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};

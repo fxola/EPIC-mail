@@ -7,7 +7,7 @@
     "test": "mocha server/src/v1/tests/*.js --require @babel/register --timeout 50000 --exit || true",
     "test-watch": "nodemon --exec \"npm test\"",
     "start": "nodemon --exec babel-node server/src/index.js",
-    "migrate": "babel-node server/src/v2/models/migrate",
+    "migrate": "babel-node server/src/v2/models/index",
     "unmigrate": "babel-node server/src/v2/models/unmigrate",
     "migrations": "npm run unmigrate && npm run migrate",
     "babel-build": "babel server/src -d server/dist && node server/dist/index",

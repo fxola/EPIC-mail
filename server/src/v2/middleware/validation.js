@@ -49,11 +49,17 @@ class Validation {
       return Validation.invalidPasswordResponse(res, 'length');
     }
 
-    if (Validation.emailExists(trimmedEmail)) {
-      return Validation.emailExistsResponse(res);
-    }
+    // eslint-disable-next-line consistent-return
+    (async () => {
+      try {
+        const emailExists = await Validation.emailExists(email);
+        if (emailExists) throw new Error('Email already in use');
+      } catch (e) {
+        return Validation.emailExistsResponse(res);
+      }
+    })();
 
-    return next();
+    next();
   }
 
   /**
@@ -245,7 +251,7 @@ class Validation {
    */
   static emailExistsResponse(res) {
     const statusCode = 409;
-    res.status(statusCode).json({
+    return res.status(statusCode).json({
       status: statusCode,
       error: 'Email already in use',
       message: 'Please provide another email address'
