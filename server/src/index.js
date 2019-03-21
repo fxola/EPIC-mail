@@ -12,6 +12,7 @@ import messageRoutes from './v1/routes/message.route';
 
 import userRoutesV2 from './v2/routes/user.route';
 import messageRoutesV2 from './v2/routes/message.route';
+import groupRoutes from './v2/routes/group.route';
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use('/api/v1/messages', messageRoutes);
 app.use('/api/v1/auth', userRoutes);
 app.use('/api/v2/messages', messageRoutesV2);
 app.use('/api/v2/auth', userRoutesV2);
+app.use('/api/v2/groups', groupRoutes);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
