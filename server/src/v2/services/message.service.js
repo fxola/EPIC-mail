@@ -1,6 +1,5 @@
 /* eslint-disable default-case */
-import mockData from '../utils/mockData';
-import Message from '../models/message.model';
+
 import MessageHelper from './utils';
 import db from '../models/db';
 

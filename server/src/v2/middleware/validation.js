@@ -59,7 +59,7 @@ class Validation {
       }
     })();
 
-    next();
+    return next();
   }
 
   /**
