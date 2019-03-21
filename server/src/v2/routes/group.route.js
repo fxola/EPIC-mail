@@ -5,10 +5,11 @@ import GroupController from '../controllers/group.controller';
 
 const { getUser } = Auth;
 
-const { createGroup } = GroupController;
+const { createGroup, getGroups } = GroupController;
 
 const groupRouter = Router();
 
 groupRouter.post('/', getUser, createGroup);
+groupRouter.get('/', getUser, getGroups);
 
 export default groupRouter;
