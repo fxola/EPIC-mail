@@ -32,6 +32,26 @@ class GroupController {
       message: 'Request Unsuccessful. You do not belong to any group presently'
     });
   }
+
+  static async updateGroup(req, res) {
+    const updated = await groupService.updateGroup(
+      req.body.name,
+      req.params.groupId,
+      req.body.email
+    );
+    if (updated) {
+      return res.status(202).json({
+        status: 202,
+        data: updated,
+        message: `Group name updated succesfully`
+      });
+    }
+    return res.status(401).json({
+      status: 401,
+      error: `Update failed`,
+      message: `You are not authorized to update this group record`
+    });
+  }
 }
 
 export default GroupController;
