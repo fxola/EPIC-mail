@@ -41,6 +41,14 @@ class GroupService {
     }
     return false;
   }
+
+  static async deleteGroup(id, userEmail) {
+    const userId = await this.getUserId(userEmail);
+    const query = `delete from groups where owner_id =$1 and id =$2`;
+    const deletedResult = await db.query(query, [userId, id]);
+    if (deletedResult.rowCount > 0) return true;
+    return false;
+  }
 }
 
 export default GroupService;
