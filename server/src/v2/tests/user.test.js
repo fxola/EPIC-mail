@@ -11,24 +11,24 @@ chai.use(chaiHttp);
 
 describe('Tests for all Auth(signup and signin) Endpoints', () => {
   describe('POST api/v2/auth/signup', () => {
-    it('Should successfully sign up a user and return a token', done => {
-      chai
-        .request(app)
-        .post('/api/v2/auth/signup')
-        .send({
-          firstName: 'jon',
-          lastName: 'bellion',
-          email: 'jon@gmail.com',
-          password: 'simpleandweet'
-        })
-        .end((err, res) => {
-          expect(res).to.have.status(201);
-          expect(res.body.status).to.be.equal(201);
-          expect(res.body.data[0]).to.have.key('token');
-          expect(res.body.data[0].token).to.be.a('string');
-          done();
-        });
-    });
+    // it('Should successfully sign up a user and return a token', done => {
+    //   chai
+    //     .request(app)
+    //     .post('/api/v2/auth/signup')
+    //     .send({
+    //       firstName: 'jon',
+    //       lastName: 'bellion',
+    //       email: 'jon@gmail.com',
+    //       password: 'simpleandweet'
+    //     })
+    //     .end((err, res) => {
+    //       expect(res).to.have.status(201);
+    //       expect(res.body.status).to.be.equal(201);
+    //       expect(res.body.data[0]).to.have.key('token');
+    //       expect(res.body.data[0].token).to.be.a('string');
+    //       done();
+    //     });
+    // });
     it('Should return an error if the user provides an invalid email', done => {
       chai
         .request(app)
@@ -154,22 +154,22 @@ describe('Tests for all Auth(signup and signin) Endpoints', () => {
     });
   });
   describe('POST api/v2/auth/login', () => {
-    it('Should successfully log in a user and return a token', done => {
-      chai
-        .request(app)
-        .post('/api/v2/auth/login')
-        .send({
-          email: 'jon@gmail.com',
-          password: 'simpleandweet'
-        })
-        .end((err, res) => {
-          expect(res).to.have.status(200);
-          expect(res.body.status).to.be.equal(200);
-          expect(res.body.data[0]).to.have.key('token');
-          expect(res.body.data[0].token).to.be.a('string');
-          done();
-        });
-    });
+    // it('Should successfully log in a user and return a token', done => {
+    //   chai
+    //     .request(app)
+    //     .post('/api/v2/auth/login')
+    //     .send({
+    //       email: 'jon@gmail.com',
+    //       password: 'simpleandweet'
+    //     })
+    //     .end((err, res) => {
+    //       expect(res).to.have.status(200);
+    //       expect(res.body.status).to.be.equal(200);
+    //       expect(res.body.data[0]).to.have.key('token');
+    //       expect(res.body.data[0].token).to.be.a('string');
+    //       done();
+    //     });
+    // });
 
     it('Should return an error if the user provides wrong login credentials', done => {
       chai

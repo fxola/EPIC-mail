@@ -28,6 +28,19 @@ class GroupService {
     if (rows.length > 0) return rows;
     return false;
   }
+
+  static async updateGroup(update, id, email) {
+    const userId = await this.getUserId(email);
+    const check = `select * from groups where id =$1 and owner_id =$2`;
+
+    const { rowCount } = await db.query(check, [id, userId]);
+    if (rowCount > 0) {
+      const query = `update groups set name = $1 where id =$2 and owner_id =$3 returning *`;
+      const { rows } = await db.query(query, [update, id, userId]);
+      if (rows.length > 0) return rows[0];
+    }
+    return false;
+  }
 }
 
 export default GroupService;
