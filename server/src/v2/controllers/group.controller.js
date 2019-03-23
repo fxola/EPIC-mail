@@ -52,6 +52,26 @@ class GroupController {
       message: `You are not authorized to update this group record`
     });
   }
+
+  static async deleteGroup(req, res) {
+    const deleted = await groupService.deleteGroup(req.params.id, req.body.email);
+    if (deleted) {
+      return res.status(200).json({
+        status: 200,
+        data: [
+          {
+            message: 'Group deleted succesfully'
+          }
+        ],
+        message: 'Request Successful'
+      });
+    }
+    return res.status(401).json({
+      status: 401,
+      error: `Operation failed`,
+      message: `You are not authorized to deleted this group record`
+    });
+  }
 }
 
 export default GroupController;
