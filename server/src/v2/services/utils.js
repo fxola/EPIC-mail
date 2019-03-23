@@ -35,7 +35,7 @@ class MessageHelper {
     const { rowCount } = await db.query(sql, [id]);
     if (rowCount > 0) {
       // update status of message to read
-      const command = `update inbox set status = $1 where id = $2`;
+      const command = `update inbox set status = $1 where message_id = $2`;
       await db.query(command, ['read', id]);
 
       const query = `SELECT inbox.status, inbox.receiver_id, message,subject,
